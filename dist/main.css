@@ -1,3 +1,110 @@
-#main>h1{border:4px solid purple;padding:20px}#main{color:purple}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  background-image: url("../src/assets/camo_background.jpg");
+  background-size: 1500px;
+}
 
-/*# sourceMappingURL=main.css.map*/
+#main {
+  width: 1000px;
+  height: 550px;
+  display: flex;
+  margin: 0 auto;
+  border: solid black 1px;
+  padding: 10px;
+  background-color: #333D29;
+  color: white;
+}
+
+#game-play-area {
+  border: solid black 1px;
+  background-image: url("../src/assets/landscape.jpg");
+  background-size: 1000px;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-bottom: 2px solid black;
+  background-color: #333D29;
+  color: white;
+}
+
+#main-nav {
+  margin-left: 100px;
+}
+
+#main-nav ul {
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+}
+
+#main-title {
+  font-size: 50px;
+}
+
+#socials {
+  margin-right: 50px;
+}
+
+#socials ul {
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+}

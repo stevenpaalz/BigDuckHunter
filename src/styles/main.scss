@@ -1,0 +1,23 @@
+body {
+    background-image: url("../src/assets/camo_background.jpg");
+    background-size: 1500px;
+}
+
+#main {
+    width: 1000px;
+    height: 550px;
+    display: flex;
+    margin: 0 auto;
+    border: solid black 1px;
+    padding: 10px;
+    background-color: #333D29;
+    color: white;
+}
+
+
+#game-play-area {
+    border: solid black 1px;
+    background-image: url("../src/assets/landscape.jpg");
+    background-size: 1000px;
+}
+
