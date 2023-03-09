@@ -25,9 +25,9 @@ In addition, this project will include:
 
 ## Technologies, Libraries, and APIs
 
--The Canvas API to render gameplay area
--webpack to bundle and transpile the source JavaScript code
--npm to manage project dependencies
+- The Canvas API to render gameplay area
+- webpack to bundle and transpile the source JavaScript code
+- npm to manage project dependencies
 
 ## Implementation Timeline
 
