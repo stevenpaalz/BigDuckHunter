@@ -2,16 +2,17 @@
 
 ## Background
 
-The Big Duck Hunter game allows a user to play as a hunter that is attempting to shoot the ducks in a gameplay environment. The user, however, does not want to shoot other types of birds. The user controls the aim of its rifle by moving the mouse around the gameplay area. Clicking on a point on the screen fires a shot at that area. Each duck that a user shoots awards the user one point. However, shooting any bird besides a duck causes a user to instantly lose the game. 
+The Big Duck Hunter game allows a user to play as a hunter that is attempting to shoot the ducks in a gameplay environment. The user, however, does not want to shoot other types of birds. The user controls the aim of its rifle using the arrow keys to move a crosshair around the gameplay area. Pressing the space bar will fire a shot where the crosshair is currently positioned in the gameplay area. The user will be awarded one point for each duck they shoot. However, if the user shoots any bird besides a duck, they will instantly lose the game. 
 
-The user is given 60 seconds to shoot as many ducks as they can without shooting other birds. The game also features the ability for the user to change the difficulty of the game.
+The user is given 60 seconds to shoot as many ducks as they can without shooting other birds. The game also features the ability for the user to change the difficulty of the game. The user's score and a timer are displayed ot the user during gameplay.
 
 ## Functionality & MVPs
 
 In Big Duck Hunter, users will be able to:
 
 - View a gameplay area with flying birds of various types as well as obstacles that birds fly behind.
-- Mouse over the gameplay area with a crosshair pointer to aim at different birds in the game. Users will be able to shoot the different birds in the game. Shooting a duck will award the user a single point, however shooting other types of birds will cause the player to immediately lose the game.
+- Move their crosshair around the gameplay area using the arrow keys to aim at different birds in the game. Users will be able to shoot the different birds in the game with the spacebar. 
+- Earn a point by shooting a duck. Shooting any other type of birds will cause the player to immediately lose the game.
 - Choose the level of difficulty of the game, which will change the flight speed, number of shootable birds, and number of shootable obstacles present in the gameplay area.
 - View a scoreboard and timer that displays the user's score. Running out of time will end the game for the user.
 
