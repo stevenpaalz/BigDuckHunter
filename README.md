@@ -10,6 +10,7 @@ The user is given 60 seconds to shoot as many ducks as they can without shooting
 
 In Big Duck Hunter, users will be able to:
 
+- Start and restart game when the user is ready to play.
 - View a gameplay area with flying birds of various types as well as obstacles that birds fly behind.
 - Move their crosshair around the gameplay area using the arrow keys to aim at different birds in the game. Users will be able to shoot the different birds in the game with the spacebar. 
 - Earn a point by shooting a duck. Shooting any other type of birds will cause the player to immediately lose the game.
