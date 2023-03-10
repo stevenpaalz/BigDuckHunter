@@ -5,8 +5,7 @@ body {
 
 #main {
     width: 1000px;
-    height: 550px;
-    display: flex;
+    height: 500px;
     margin: 0 auto;
     border: solid black 1px;
     padding: 10px;
@@ -15,9 +14,34 @@ body {
 }
 
 
-#game-play-area {
+#canvas {
+    float: left;
     border: solid black 1px;
+    background: white;
     background-image: url("../src/assets/landscape.jpg");
-    background-size: 1000px;
+    background-size: 1200px;
+    width: auto;
 }
 
+#sidebar {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    width: 178px;
+    height: 500px;
+    margin: 2px;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 1.5em;
+}
+
+#timer {
+    height: 100px;
+}
+
+#difficulty {
+    height: 150px;
+}
+
+#instructions {
+    height: 250px;
+}
