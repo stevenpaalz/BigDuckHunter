@@ -6,15 +6,22 @@ class Duck extends FlyingObject {
         this.img = new Image();
         this.img.src = "../BigDuckHunter/assets/kisspng-mallard-duck-bird-clip-art.png";
     }
-        
-    draw() {
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-        if (this.x - this.width > canvas.width || this.x + (this.width*2) < 0) {
-            this.dx = -this.dx
+
+    static ducks = [];
+    static deadDucks = [];
+
+    static generateDucks(difficulty) {
+        let numDucks = 15;
+        switch(difficulty) {
+            case "medium":
+                numDucks = 10;
+                break;
+            case "hard":
+                numDucks = 5;
+                break;
         }
-        if (this.y - this.height > canvas.height || this.y + (this.height*2) < 0) {
-            this.dy = -this.dy
+        for (let i = 0; i < numDucks; i ++) {
+            this.ducks.push(new Duck(difficulty))
         }
     }
 }
