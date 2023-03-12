@@ -33,16 +33,16 @@ class Crosshair {
 
     move() {
         if (this.leftPressed) {
-            this.x -= 4;
+            this.x -= 5;
         }
         if (this.rightPressed) {
-            this.x += 4;
+            this.x += 5;
         }
         if (this.upPressed) {
-            this.y -= 4;
+            this.y -= 5;
         }
         if (this.downPressed) {
-            this.y += 4;
+            this.y += 5;
         }
         this.draw();
     }

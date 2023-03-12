@@ -22,7 +22,6 @@ class Shot {
     static currentShots = [];
 
     fire() {
-        console.log("shot fired!");
         this.framesRemaining = 20;
         Shot.currentShots.push(this);
         this.duckCollisions();
@@ -33,6 +32,7 @@ class Shot {
         for (let i = 0; i < Duck.ducks.length; i++) {
             if (detectCollision(this.hitbox, Duck.ducks[i].hitbox)) {
                 Duck.deadDucks.push(Duck.ducks[i]);
+                // refreshedDucks.push(Duck.respawn(difficulty))
             } else {refreshedDucks.push(Duck.ducks[i])}
         }
         Duck.ducks = refreshedDucks;

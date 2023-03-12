@@ -1,13 +1,15 @@
-// import FlyingObject from "./flying_objects";
-// import Hawk from "./hawks"
+import Sparrow from "./sparrows"
+import Owl from "./owls"
+import Vulture from "./vultures"
+import Goose from "./geese"
 
-// class OtherBird extends FlyingObject {
+class OtherBird {
 
-//     static otherBirds = [];
+    static otherBirds = [];
 
-//     static generateOtherBirds(difficulty) {
-//         this.otherBirds.concat(Hawk.generateHawks(difficulty));
-//     }
-// }
+    static generateOtherBirds(difficulty) {
+        this.otherBirds = this.otherBirds.concat(Sparrow.generateSparrows(difficulty), Owl.generateOwls(difficulty), Vulture.generateVultures(difficulty), Goose.generateGeese(difficulty));
+    }
+}
 
-// export default OtherBird;
+export default OtherBird;
