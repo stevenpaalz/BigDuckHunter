@@ -4,13 +4,13 @@
     flex-direction: column;
     justify-content: space-between;
     width: 178px;
-    height: 576px;
+    height: 578px;
     margin: 0 2px;
     padding: 0px;
 }
 
 #sidebar div {
-    border: solid rgb(91, 48, 12) 3px;
+    border: solid rgb(91, 48, 12) 4px;
     border-radius: 5px;
     padding: 10px;
     background-color: #365700;
@@ -79,4 +79,8 @@
 
 #instruction-img {
     margin: 5px 0;
+}
+
+#difficulty-display {
+    font-size: 2em;
 }

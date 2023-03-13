@@ -10,12 +10,15 @@ class Game {
         this.difficulty = difficulty;
         this.time = 30;
         this.score = 0;
+        this.gameLost = false;
         this.crosshair = new Crosshair(this);
     }
 
     animate() {
         if (this.time <= 0) {
-            this.gameOver();
+            if (!this.gameLost) {
+                this.gameOver();
+            }
             return;
         }
         const ctx = canvas.getContext("2d");
@@ -40,29 +43,41 @@ class Game {
     }
 
     run() {
-        Duck.generateDucks(this.difficulty);
-        OtherBird.generateOtherBirds(this.difficulty);
+        const difficultyDisplay = document.getElementById("difficulty-display")
+        difficultyDisplay.innerText = this.difficulty;
+        Duck.generateDucks(this.difficulty, this);
+        OtherBird.generateOtherBirds(this.difficulty, this);
         Tree.generateTrees();
         document.addEventListener("keydown", this.crosshair.keyDownHandler.bind(this.crosshair));
         document.addEventListener("keyup", this.crosshair.keyUpHandler.bind(this.crosshair));
-        const canvas = document.getElementById("canvas");
         this.ticker = setInterval(this.tick.bind(this), 1000)
         this.animate();
     }
 
     tick() {
-        this.time -= 1;
         const timeDisplay = document.getElementById("time-display")
         timeDisplay.innerText = this.time.toLocaleString('en-US', {
             minimumIntegerDigits: 2
           });
-        if (this.time <= 0) {
+        if (this.time > 0) {
+            this.time -= 1;
+        } else {
             clearInterval(this.ticker);
             // console.log("timer ended")
         }
     }
 
+    loseGame() {
+        this.gameLost = true;
+        this.time = 0;
+        const gameLose = document.getElementById("game-lose")
+        gameLose.classList.remove("hidden");
+        console.log('you lose!');
+    }
+
     gameOver() {
+        const gameOver = document.getElementById("game-over")
+        gameOver.classList.remove("hidden");
         console.log("game over");
     }
 

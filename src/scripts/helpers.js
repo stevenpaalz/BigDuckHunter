@@ -5,14 +5,14 @@ export function getRndInteger(min, max) {
 export function getVelHor(difficulty) {
     let speedInt = 0;
     switch(difficulty) {
-        case "easy":
+        case "Easy":
+            speedInt = 1;
+            break;
+        case "Medium":
             speedInt = 2;
             break;
-        case "medium":
-            speedInt = 3;
-            break;
-        case "hard":
-            speedInt = 5;
+        case "Hard":
+            speedInt = 4;
             break;
     }
     let vel = getRndInteger(-speedInt, speedInt + 1);
@@ -25,13 +25,13 @@ export function getVelHor(difficulty) {
 export function getVelVert (difficulty) {
     let speedInt = 0;
     switch(difficulty) {
-        case "easy":
+        case "Easy":
             speedInt = 1;
             break;
-        case "medium":
+        case "Medium":
             speedInt = 2;
             break;
-        case "hard":
+        case "Hard":
             speedInt = 3;
             break;
     }

@@ -7,8 +7,8 @@ class OtherBird {
 
     static otherBirds = [];
 
-    static generateOtherBirds(difficulty) {
-        this.otherBirds = this.otherBirds.concat(Sparrow.generateSparrows(difficulty), Owl.generateOwls(difficulty), Vulture.generateVultures(difficulty), Goose.generateGeese(difficulty));
+    static generateOtherBirds(difficulty, game) {
+        this.otherBirds = this.otherBirds.concat(Sparrow.generateSparrows(difficulty, game), Owl.generateOwls(difficulty, game), Vulture.generateVultures(difficulty, game), Goose.generateGeese(difficulty, game));
     }
 }
 

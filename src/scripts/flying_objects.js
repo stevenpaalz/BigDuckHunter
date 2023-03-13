@@ -1,7 +1,7 @@
 import {getRndInteger, getVelHor, getVelVert} from "./helpers";
 
 class FlyingObject {
-    constructor(difficulty) {
+    constructor(difficulty, game) {
         this.width = 90;
         this.height = 60;
         this.sx = getRndInteger(0, 3) * 450;
@@ -12,6 +12,7 @@ class FlyingObject {
         this.y = getRndInteger(0, canvas.height + 1);
         this.dx = getVelHor(difficulty);
         this.dy = getVelVert(difficulty);
+        this.game = game;
         this.hitbox = {
             x: this.x + (this.width / 6),
             y: this.y + (this.height / 6),
@@ -30,7 +31,6 @@ class FlyingObject {
         else {this.img.src = this.reverseImgSrc}
         ctx.drawImage(this.img, this.sx, this.sy, this.sWidth, this.sHeight, this.x, this.y, this.width, this.height);
         
-        // ctx.fillRect(this.hitbox.x, this.hitbox.y, this.hitbox.width, this.hitbox.height);
         if (this.x - this.width > canvas.width || this.x + this.width < 0) {
             this.dx = -this.dx;
         }
@@ -63,8 +63,8 @@ class FlyingObject {
     }
 
     switchDirection() {
-        this.dx = getVelHor("easy");
-        this.dy = getVelVert("easy");
+        this.dx = getVelHor(this.game.difficulty);
+        this.dy = getVelVert(this.game.difficulty);
     }
 }
 

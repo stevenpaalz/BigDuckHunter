@@ -1,0 +1,58 @@
+.game-prompt {
+    position: absolute;
+    background-color: #365700;
+    height: 300px;
+    width: 600px;
+    top: 125px;
+    left: 210px;
+    border: 4px rgb(91, 48, 12) solid;
+    border-radius: 5px;
+    padding: 20px;
+    font-family: 'Bangers', cursive;
+
+}
+
+.game-prompt h2 {
+    font-size: 60px;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.game-prompt h5 {
+    font-size: 30px;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+
+#game-start-instructions h3 {
+    font-size: 30px;
+}
+
+#game-start-form h3 {
+    font-size: 30px;
+}
+
+#game-start-instructions {
+    margin-top: 25px;
+    float: left;
+    width: 300px;
+    text-align: center;
+}
+
+#game-start-form {
+    margin-top: 25px;
+    float: right;
+    width: 300px;
+    text-align: center;
+}
+
+#game-start-form input[type="radio"] {
+    text-align: left;
+}
+
+.hidden {
+    display: none;
+}

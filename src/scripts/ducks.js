@@ -1,8 +1,8 @@
 import FlyingObject from "./flying_objects";
 
 class Duck extends FlyingObject {
-    constructor(difficulty) {
-        super(difficulty);
+    constructor(difficulty, game) {
+        super(difficulty, game);
         this.regImgSrc = "../BigDuckHunter/assets/ducks.png";
         this.reverseImgSrc = "../BigDuckHunter/assets/ducks_reverse.png";
     }
@@ -10,24 +10,24 @@ class Duck extends FlyingObject {
     static ducks = [];
     static deadDucks = [];
 
-    static generateDucks(difficulty) {
+    static generateDucks(difficulty, game) {
         let numDucks = 12;
         switch(difficulty) {
-            case "medium":
+            case "Medium":
                 numDucks = 8;
                 break;
-            case "hard":
+            case "Hard":
                 numDucks = 4;
                 break;
         }
         for (let i = 0; i < numDucks; i ++) {
-            this.ducks.push(new Duck(difficulty))
+            this.ducks.push(new Duck(difficulty, game))
         }
     }
 
-    // static respawnDuck(difficulty) {
-
-    // }
+    static respawn(difficulty, game) {
+        return new Duck(difficulty, game);
+    }
 }
 
 export default Duck;

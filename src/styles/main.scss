@@ -12,7 +12,8 @@ body {
 }
 
 #canvas-container {
-    border: solid rgb(91, 48, 12) 3px;
+    position: relative;
+    border: solid rgb(91, 48, 12) 4px;
     border-radius: 5px;
     padding: 10px;
     background-color: #365700;
@@ -22,12 +23,17 @@ body {
 
 
 #canvas {
-    float: left;
+    // float: left;
+    position: absolute;
     border: solid black 1px;
     background: white;
     background-image: url("../../BigDuckHunter/assets/landscape.jpg");
     background-size: 1200px;
     width: auto;
 }
+
+
+
+
 
 

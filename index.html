@@ -35,11 +35,87 @@
     <div id="main">
         <div id="canvas-container">
             <canvas id="canvas" width="1000" height="550"></canvas>
+            <div id="game-start" class="game-prompt">
+                    <h2>Ready to Hunt?</h2>
+                <div id="game-start-instructions">
+                    <h3>Instructions</h3>
+                </div>
+                <div id="game-start-form">
+                    <h3>Game Play Options</h3>
+                    <br>
+                    <h4>Select Difficulty</h4>
+                    <form id="game-start-form">
+                        <input type="radio" id="easy" name="difficulty" value="Easy">
+                        <label for="easy">EASY</label><br>
+                        <input type="radio" id="medium" name="difficulty" value="Medium" checked>
+                        <label for="medium">MEDIUM</label><br>
+                        <input type="radio" id="hard" name="difficulty" value="Hard">
+                        <label for="hard">HARD</label><br>
+                        <input id="game-start-button" type="button" value="BEGIN GAME!">
+                    </form>
+                </div>
+            </div>
+            <div id="game-lose" class="game-prompt hidden">
+                <h2>YOU LOSE</h2>
+                <h5>Oh no, you shot the wrong bird!</h5>
+                <div id="game-start-instructions">
+                    <h3>Instructions</h3>
+                </div>
+                <div id="game-start-form">
+                    <h3>Game Play Options</h3>
+                    <br>
+                    <h4>Select Difficulty</h4>
+                    <form id="game-start-form">
+                        <input type="radio" id="easy" name="difficulty" value="Easy">
+                        <label for="easy">EASY</label><br>
+                        <input type="radio" id="medium" name="difficulty" value="Medium" checked>
+                        <label for="medium">MEDIUM</label><br>
+                        <input type="radio" id="hard" name="difficulty" value="Hard">
+                        <label for="hard">HARD</label><br>
+                        <input id="game-start-button-loss" type="button" value="PLAY AGAIN!">
+                    </form>
+                </div>
+            </div>
+            <div id="game-over" class="game-prompt hidden">
+                <h2>Nice Shootin'!</h2>
+                <h5>Your final score: --</h5>
+                <div id="game-start-instructions">
+                    <h3>Instructions</h3>
+                </div>
+                <div id="game-start-form">
+                    <h3>Game Play Options</h3>
+                    <br>
+                    <h4>Select Difficulty</h4>
+                    <form id="game-start-form">
+                        <input type="radio" id="easy" name="difficulty" value="Easy">
+                        <label for="easy">EASY</label><br>
+                        <input type="radio" id="medium" name="difficulty" value="Medium" checked>
+                        <label for="medium">MEDIUM</label><br>
+                        <input type="radio" id="hard" name="difficulty" value="Hard">
+                        <label for="hard">HARD</label><br>
+                        <input id="game-start-button-win" type="button" value="PLAY AGAIN!">
+                    </form>
+                </div>
+            </div>
+            <div id="game-start-form">
+                <h3>Game Play Options</h3>
+                <br>
+                <h4>Difficulty</h4>
+                <form id="game-start-form">
+                    <input type="radio" id="easy" name="difficulty" value="Easy">
+                    <label for="easy">EASY</label><br>
+                    <input type="radio" id="medium" name="difficulty" value="Medium">
+                    <label for="medium">MEDIUM</label><br>
+                    <input type="radio" id="hard" name="difficulty" value="Hard">
+                    <label for="hard">HARD</label><br>
+                    <input id="game-start-button" type="button" value="BEGIN GAME!">
+                </form>
+            </div>
         </div>
         <div id="sidebar">
             <div id="timer">
                 <h3>Time</h3>
-                <p id="time-display" class="big-letters">30</p>
+                <p id="time-display" class="big-letters">--</p>
             </div>
             <div id="score">
                 <h3>Score</h3>

@@ -1,5 +1,6 @@
 import Duck from "./ducks";
 import { detectCollision } from "./helpers";
+import OtherBird from "./other_birds";
 
 class Shot {
     constructor(x, y, width, height, game) {
@@ -25,6 +26,7 @@ class Shot {
     fire() {
         this.framesRemaining = 20;
         Shot.currentShots.push(this);
+        this.otherBirdCollisions();
         this.duckCollisions();
     }
 
@@ -34,11 +36,18 @@ class Shot {
             if (detectCollision(this.hitbox, Duck.ducks[i].hitbox)) {
                 Duck.deadDucks.push(Duck.ducks[i]);
                 this.game.scorePoint();
-                console.log(this.game);
-                // refreshedDucks.push(Duck.respawn(difficulty))
+                refreshedDucks.push(Duck.respawn(this.game.difficulty, this.game))
             } else {refreshedDucks.push(Duck.ducks[i])}
         }
         Duck.ducks = refreshedDucks;
+    }
+
+    otherBirdCollisions() {
+        for (let i = 0; i < OtherBird.otherBirds.length; i++) {
+            if (detectCollision(this.hitbox, OtherBird.otherBirds[i].hitbox)) {
+                return this.game.loseGame();
+            }
+        }
     }
 
     static drawShots() {
