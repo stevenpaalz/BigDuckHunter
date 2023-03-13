@@ -7,7 +7,7 @@ import Tree from "./scripts/trees"
 import Game from "./scripts/game"
 
 document.addEventListener("DOMContentLoaded", () => {
-    const difficulty = "easy"
+    const difficulty = "medium"
 
     const game = new Game(difficulty);
     game.run();

@@ -32,45 +32,6 @@ body {
   width: auto;
 }
 
-#sidebar {
-  float: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 178px;
-  height: 576px;
-  margin: 0 2px;
-  padding: 0px;
-}
-
-#sidebar div {
-  border: solid rgb(91, 48, 12) 3px;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #365700;
-}
-
-#sidebar div h3 {
-  font-family: "Bangers", cursive;
-  font-size: 2em;
-}
-
-#timer {
-  height: 70px;
-}
-
-#score {
-  height: 70px;
-}
-
-#difficulty {
-  height: 70px;
-}
-
-#instructions {
-  height: 250px;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -156,4 +117,49 @@ table {
   display: flex;
   width: 200px;
   justify-content: space-around;
+}
+
+#sidebar {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 178px;
+  height: 576px;
+  margin: 0 2px;
+  padding: 0px;
+}
+
+#sidebar div {
+  border: solid rgb(91, 48, 12) 3px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #365700;
+}
+
+#sidebar div h3 {
+  font-family: "Bangers", cursive;
+  font-size: 2em;
+}
+
+#timer {
+  height: 70px;
+}
+
+#score {
+  height: 70px;
+}
+
+#difficulty {
+  height: 70px;
+}
+
+#instructions {
+  height: 250px;
+}
+
+.big-letters {
+  font-family: "Rye", cursive;
+  font-size: 2.5em;
+  color: red;
 }

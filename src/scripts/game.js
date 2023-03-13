@@ -8,12 +8,16 @@ import Tree from "./trees"
 class Game {
     constructor(difficulty) {
         this.difficulty = difficulty;
-        this.time = 60;
+        this.time = 10;
         this.score = 0;
-        this.crosshair = new Crosshair();
+        this.crosshair = new Crosshair(this);
     }
 
     animate() {
+        if (this.time <= 0) {
+            this.gameOver();
+            return;
+        }
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         FlyingObject.frames += 1;
@@ -28,6 +32,10 @@ class Game {
         }
         this.crosshair.move();
         Shot.drawShots();
+        const scoreDisplay = document.getElementById("score-display");
+        scoreDisplay.innerText = this.score.toLocaleString('en-US', {
+            minimumIntegerDigits: 2
+          });
         requestAnimationFrame(this.animate.bind(this));
     }
 
@@ -38,8 +46,28 @@ class Game {
         document.addEventListener("keydown", this.crosshair.keyDownHandler.bind(this.crosshair));
         document.addEventListener("keyup", this.crosshair.keyUpHandler.bind(this.crosshair));
         const canvas = document.getElementById("canvas");
-        // debugger
+        this.ticker = setInterval(this.tick.bind(this), 1000)
         this.animate();
+    }
+
+    tick() {
+        this.time -= 1;
+        const timeDisplay = document.getElementById("time-display")
+        timeDisplay.innerText = this.time.toLocaleString('en-US', {
+            minimumIntegerDigits: 2
+          });
+        if (this.time <= 0) {
+            clearInterval(this.ticker);
+            // console.log("timer ended")
+        }
+    }
+
+    gameOver() {
+        console.log("game over");
+    }
+
+    scorePoint() {
+        this.score += 1;
     }
 }
 

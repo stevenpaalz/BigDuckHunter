@@ -2,11 +2,12 @@ import Duck from "./ducks";
 import { detectCollision } from "./helpers";
 
 class Shot {
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, game) {
         this.x = x,
         this.y = y;
         this.width = width;
         this.height = height;
+        this.game = game;
         this.framesRemaining = 0;
         this.shotImg = new Image();
         this.shotImg.src = "../BigDuckHunter/assets/explosion.png";
@@ -32,6 +33,8 @@ class Shot {
         for (let i = 0; i < Duck.ducks.length; i++) {
             if (detectCollision(this.hitbox, Duck.ducks[i].hitbox)) {
                 Duck.deadDucks.push(Duck.ducks[i]);
+                this.game.scorePoint();
+                console.log(this.game);
                 // refreshedDucks.push(Duck.respawn(difficulty))
             } else {refreshedDucks.push(Duck.ducks[i])}
         }
