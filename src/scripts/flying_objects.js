@@ -4,12 +4,12 @@ class FlyingObject {
     constructor(difficulty) {
         this.width = 90;
         this.height = 60;
-        this.sx = getRndInteger(0, 2) * 450;
-        this.sy = getRndInteger(0, 2) * 300;
+        this.sx = getRndInteger(0, 3) * 450;
+        this.sy = getRndInteger(0, 3) * 300;
         this.sWidth = 450;
         this.sHeight = 300;
-        this.x = getRndInteger(0, canvas.width);
-        this.y = getRndInteger(0, canvas.height);
+        this.x = getRndInteger(0, canvas.width + 1);
+        this.y = getRndInteger(0, canvas.height + 1);
         this.dx = getVelHor(difficulty);
         this.dy = getVelVert(difficulty);
         this.hitbox = {
@@ -31,11 +31,11 @@ class FlyingObject {
         ctx.drawImage(this.img, this.sx, this.sy, this.sWidth, this.sHeight, this.x, this.y, this.width, this.height);
         
         // ctx.fillRect(this.hitbox.x, this.hitbox.y, this.hitbox.width, this.hitbox.height);
-        if (this.x - this.width > canvas.width || this.x + (this.width*2) < 0) {
-            this.dx = -this.dx
+        if (this.x - this.width > canvas.width || this.x + this.width < 0) {
+            this.dx = -this.dx;
         }
-        if (this.y - this.height > canvas.height || this.y + (this.height*2) < 0) {
-            this.dy = -this.dy
+        if (this.y - this.height > canvas.height || this.y + this.height < 0) {
+            this.dy = -this.dy;
         }
     }
 

@@ -2,8 +2,8 @@ class Tree1 {
     constructor() {
         this.img = new Image();
         this.img.src = "../BigDuckHunter/assets/tree_1.png";
-        this.x = 730;
-        this.y = 60;
+        this.x = 740;
+        this.y = 100;
         this.width = 411 / 1.6;
         this.height = 771 / 1.6;
     }

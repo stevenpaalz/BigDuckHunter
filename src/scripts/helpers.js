@@ -15,9 +15,9 @@ export function getVelHor(difficulty) {
             speedInt = 5;
             break;
     }
-    let vel = getRndInteger(-speedInt, speedInt);
+    let vel = getRndInteger(-speedInt, speedInt + 1);
     while (vel === 0) {
-        vel = getRndInteger(-speedInt, speedInt);
+        vel = getRndInteger(-speedInt, speedInt + 1);
     }
     return vel;
 }
@@ -36,9 +36,9 @@ export function getVelVert (difficulty) {
             break;
     }
 
-    let vel = getRndInteger(-speedInt, speedInt);
+    let vel = getRndInteger(-speedInt, speedInt + 1);
     while (vel === 0) {
-        vel = getRndInteger(-speedInt, speedInt);
+        vel = getRndInteger(-speedInt, speedInt + 1);
     }
     return vel;
 }
