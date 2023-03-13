@@ -2,7 +2,6 @@ import Shot from "./shot"
 
 class Crosshair {
     constructor(game) {
-        this.game = game;
         this.img = new Image();
         this.img.src = "../BigDuckHunter/assets/crosshair.png";
         this.width = 50;
@@ -13,6 +12,7 @@ class Crosshair {
         this.rightPressed = false;
         this.upPressed = false;
         this.downPressed = false;
+        this.game = game;
     }
 
     draw() {
@@ -112,7 +112,7 @@ class Crosshair {
     }
 
     fireShot() {
-        let shot = new Shot(this.x, this.y, this.width, this.height, this.game)
+        let shot = new Shot(this.x, this.y, this.width, this.height, this.game);
         shot.fire();
     }
 }

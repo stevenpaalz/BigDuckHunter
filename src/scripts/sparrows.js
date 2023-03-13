@@ -10,6 +10,7 @@ class Sparrow extends FlyingObject {
     static sparrows = [];
 
     static generateSparrows(difficulty, game) {
+        this.sparrows = [];
         let numSparrows = 3;
         switch(difficulty) {
             case "Medium":

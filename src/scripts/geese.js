@@ -10,6 +10,7 @@ class Goose extends FlyingObject {
     static geese = [];
 
     static generateGeese(difficulty, game) {
+        this.geese = [];
         let numGeese = 3;
         switch(difficulty) {
             case "Medium":

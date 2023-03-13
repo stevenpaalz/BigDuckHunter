@@ -10,6 +10,7 @@ class Owl extends FlyingObject {
     static owls = [];
 
     static generateOwls(difficulty, game) {
+        this.owls = [];
         let numOwls = 3;
         switch(difficulty) {
             case "Medium":

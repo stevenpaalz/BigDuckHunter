@@ -7,10 +7,11 @@ class Duck extends FlyingObject {
         this.reverseImgSrc = "../BigDuckHunter/assets/ducks_reverse.png";
     }
 
-    static ducks = [];
-    static deadDucks = [];
+    // static ducks = [];
+    // static deadDucks = [];
 
     static generateDucks(difficulty, game) {
+        let ducks = []
         let numDucks = 12;
         switch(difficulty) {
             case "Medium":
@@ -21,8 +22,9 @@ class Duck extends FlyingObject {
                 break;
         }
         for (let i = 0; i < numDucks; i ++) {
-            this.ducks.push(new Duck(difficulty, game))
+            ducks.push(new Duck(difficulty, game))
         }
+        return ducks;
     }
 
     static respawn(difficulty, game) {

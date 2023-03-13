@@ -5,10 +5,11 @@ import Goose from "./geese"
 
 class OtherBird {
 
-    static otherBirds = [];
+    // static otherBirds = [];
 
     static generateOtherBirds(difficulty, game) {
-        this.otherBirds = this.otherBirds.concat(Sparrow.generateSparrows(difficulty, game), Owl.generateOwls(difficulty, game), Vulture.generateVultures(difficulty, game), Goose.generateGeese(difficulty, game));
+        let otherBirds = [];
+        return otherBirds.concat(Sparrow.generateSparrows(difficulty, game), Owl.generateOwls(difficulty, game), Vulture.generateVultures(difficulty, game), Goose.generateGeese(difficulty, game));
     }
 }
 

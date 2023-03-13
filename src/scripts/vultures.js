@@ -10,6 +10,7 @@ class Vulture extends FlyingObject {
     static vultures = [];
 
     static generateVultures(difficulty, game) {
+        this.vultures = [];
         let numVultures = 3;
         switch(difficulty) {
             case "Medium":
