@@ -49,18 +49,30 @@ class Crosshair {
     }
 
     keyDownHandler(event) {
-        if ([37, 38, 39, 40, 32].includes(event.keyCode)) {event.preventDefault();}
+        if ([37, 38, 39, 40, 32, 65, 68, 83, 87].includes(event.keyCode)) {event.preventDefault();}
         switch (event.keyCode) {
             case 37:
+                this.leftPressed = true;
+                break;
+            case 65:
                 this.leftPressed = true;
                 break;
             case 39:
                 this.rightPressed = true;
                 break;
+            case 68:
+                this.rightPressed = true;
+                break;     
             case 38:
                 this.upPressed = true;
                 break;
+            case 87:
+                this.upPressed = true;
+                break;
             case 40:
+                this.downPressed = true;
+                break;
+            case 83:
                 this.downPressed = true;
                 break;
             case 32:
@@ -75,13 +87,25 @@ class Crosshair {
             case 37:
                 this.leftPressed = false;
                 break;
+            case 65:
+                this.leftPressed = false;
+                break;
             case 39:
                 this.rightPressed = false;
                 break;
+            case 68:
+                this.rightPressed = false;
+                break; 
             case 38:
                 this.upPressed = false;
                 break;
+            case 87:
+                this.upPressed = false;
+                break;
             case 40:
+                this.downPressed = false;
+                break;
+            case 83:
                 this.downPressed = false;
                 break;
         }

@@ -22,23 +22,61 @@
 }
 
 #timer {
-    height: 70px;
+    height: 65px;
 }
 
 #score {
-    height: 70px;
+    height: 65px;
 }
 
 #difficulty {
-    height: 70px;
+    height: 65px;
 }
 
 #instructions {
-    height: 250px;
+    height: 265px;
 }
 
 .big-letters {
     font-family: 'Rye', cursive;
     font-size: 2.5em;
     color: red;
+}
+
+#keys-img {
+    margin: 5px 0;
+}
+
+#instructions div {
+    text-align: center;
+    font-family: arial;
+    border: none;
+    margin: 0;
+    padding: 3px;
+    font-size: 0.8em;
+}
+
+#spacebar-image {
+    border: white 1px solid;
+    height: 15px;
+    margin: 5px;
+    width: 80px;
+    border-radius: 2px;
+    align-items: center;
+}
+
+#spacebar-instruction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar-underneath {
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgb(91, 48, 12);
+}
+
+#instruction-img {
+    margin: 5px 0;
 }
