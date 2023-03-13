@@ -8,7 +8,7 @@ import Tree from "./trees"
 class Game {
     constructor(difficulty) {
         this.difficulty = difficulty;
-        this.time = 10;
+        this.time = 30;
         this.score = 0;
         this.crosshair = new Crosshair(this);
     }
