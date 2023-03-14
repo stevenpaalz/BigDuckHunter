@@ -44,9 +44,8 @@ export function getVelVert (difficulty) {
 }
 
 export function detectCollision(circ, rect) {
-    // debugger
-    let distX = Math.abs(circ.x - rect.x - (rect.width/2))
-    let distY = Math.abs(circ.y - rect.y - (rect.height/2))
+    let distX = Math.abs(circ.x - rect.x - (rect.width/2));
+    let distY = Math.abs(circ.y - rect.y - (rect.height/2));
     if (distX > (rect.w / 2 + circ.r)) {
         return false;
     }
@@ -61,4 +60,17 @@ export function detectCollision(circ, rect) {
     var dx = distX - rect.width / 2;
     var dy = distY - rect.height / 2;
     return (dx * dx + dy * dy <= (circ.radius * circ.radius));
+}
+
+export function detectCollisionCircles(circ1, circ2) {
+    let distX = Math.abs(circ1.x - circ2.x);
+    let distY = Math.abs(circ1.y - circ2.y)
+    let largerCirc = {}
+    if (circ1.radius > circ2.radius) {
+        largerCirc = circ1;
+    } else {
+        largerCirc = circ2;
+    }
+
+    return (distX * distX + distY * distY <= (largerCirc.radius * largerCirc.radius));
 }

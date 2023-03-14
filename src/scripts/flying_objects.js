@@ -44,7 +44,7 @@ class FlyingObject {
         this.y += this.dy;
         this.hitbox.x = this.x + (this.width / 6);
         this.hitbox.y = this.y + (this.height / 6);
-        if (this.game.frames % 7 === 0) {this.updateFlaps();}
+        if (this.game.frames % 6 === 0) {this.updateFlaps();}
         if (getRndInteger(0,100) === 0) {this.switchDirection();}
         this.draw();
     }
