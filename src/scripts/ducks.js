@@ -10,13 +10,13 @@ class Duck extends FlyingObject {
 
     static generateDucks(difficulty, game) {
         let ducks = []
-        let numDucks = 12;
+        let numDucks = 15;
         switch(difficulty) {
             case "Medium":
-                numDucks = 8;
+                numDucks = 10;
                 break;
             case "Hard":
-                numDucks = 4;
+                numDucks = 5;
                 break;
         }
         for (let i = 0; i < numDucks; i ++) {

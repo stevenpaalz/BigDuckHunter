@@ -108,9 +108,13 @@ a {
 
 #main-nav ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-family: "Bangers", cursive;
+}
+
+#main-nav ul:first-child {
+  width: 200px;
 }
 
 #main-title {
@@ -130,6 +134,10 @@ a {
 
 #sound img {
   height: 30px;
+}
+
+#sound:hover {
+  cursor: pointer;
 }
 
 #sidebar {

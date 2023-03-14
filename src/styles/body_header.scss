@@ -18,9 +18,13 @@
 
 #main-nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: 'Bangers', cursive;
+}
+
+#main-nav ul:first-child {
+    width: 200px;
 }
 
 #main-title {
@@ -40,4 +44,8 @@
 
 #sound img {
     height: 30px;
+}
+
+#sound:hover {
+    cursor: pointer;
 }

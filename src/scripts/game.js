@@ -1,4 +1,3 @@
-import FlyingObject from "./flying_objects";
 import Duck from "./ducks";
 import Shot from "./shot";
 import OtherBird from "./other_birds";
@@ -85,8 +84,10 @@ class Game {
 
     loseGame() {
         this.time = 0;
-        const gameLose = document.getElementById("game-lose");
-        gameLose.classList.remove("hidden");
+        const lostGame = document.getElementById("lost-game");
+        const gameInitializer = document.getElementById("game-initializer");
+        gameInitializer.classList.remove("hidden");
+        lostGame.classList.remove("hidden");
     }
 
     changeGameLost() {
@@ -94,10 +95,12 @@ class Game {
     }
 
     gameOver() {
-        const gameOver = document.getElementById("game-over");
         const finalScoreMessage = document.getElementById("final-score-message");
+        const wonGame = document.getElementById("won-game");
+        const gameInitializer = document.getElementById("game-initializer");
         finalScoreMessage.innerText = `Final Score: ${this.score}`;
-        gameOver.classList.remove("hidden");
+        gameInitializer.classList.remove("hidden");
+        wonGame.classList.remove("hidden");
     }
 
     scorePoint() {

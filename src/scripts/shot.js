@@ -21,10 +21,15 @@ class Shot {
         }
     }
 
-    // static currentShots = [];
 
     fire() {
         this.framesRemaining = 20;
+        const sound = document.getElementById('sound');
+        if (sound.dataset.muted === "false") {
+            const gunSound = new Audio();
+            gunSound.src = "../BigDuckHunter/assets/gun_shot.mp3";
+            gunSound.play();
+        }
         this.game.currentShots.push(this);
         this.otherBirdCollisions();
         if (!this.game.gameLost) {
@@ -36,7 +41,12 @@ class Shot {
         let refreshedDucks = [];
         for (let i = 0; i < this.game.ducks.length; i++) {
             if (detectCollision(this.hitbox, this.game.ducks[i].hitbox)) {
-                // Duck.deadDucks.push(Duck.ducks[i]);
+                const sound = document.getElementById('sound');
+                if (sound.dataset.muted === "false") {
+                    const duckSound = new Audio();
+                    duckSound.src = "../BigDuckHunter/assets/duck_quack.mp3";
+                    duckSound.play();
+                }
                 this.game.scorePoint();
                 refreshedDucks.push(Duck.respawn(this.game.difficulty, this.game))
             } else {refreshedDucks.push(this.game.ducks[i])}
@@ -52,21 +62,6 @@ class Shot {
             }
         }
     }
-
-    // static drawShots() {
-    //     const ctx = canvas.getContext("2d");
-    //     this.currentShots.forEach((shot) => {
-    //         shot.framesRemaining -= 1;
-    //         if (shot.framesRemaining < 1) {
-    //             this.currentShots.shift();
-    //         } else {
-    //             ctx.globalAlpha = shot.framesRemaining / 20
-    //             ctx.drawImage(shot.shotImg, shot.x, shot.y, shot.width, shot.height);
-    //             ctx.globalAlpha = 1;
-    //         }
-    //     })
-    // }
-
 }
 
 export default Shot;

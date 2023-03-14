@@ -20,26 +20,36 @@
         <nav id="main-nav">
             <ul>
                 <li><a href="javascript:window.location.href=window.location.href">Restart Game</a></li>
-                <li id="sound">
+                <li id="sound" data-muted="true">
                     <img src="./assets/mute.png">
+                    <audio id="music" src="./assets/mixkit-goin-back-to-alabama-830.mp3"></audio>
                 </li>
             </ul>
         </nav>
         <h1 id="main-title">Big Duck Hunter</h1>
         <nav id="socials">
             <ul>
-                <li>Github</li>
-                <li>Linkedin</li>
-                <li>Other stuff</li>
+                <li><a href="https://github.com/stevenpaalz"><img width="45" src="./assets/github_icon.png"></a></li>
+                <li><a href="https://www.linkedin.com/in/steve-paalz/"><img width="45" src="./assets/linkedin_icon.png"></a></li>
             </ul>
         </nav>
     </nav>
     <div id="main">
         <div id="canvas-container">
             <canvas id="canvas" width="1000" height="550"></canvas>
-            <div id="game-start" class="game-prompt">
+            <div id="game-initializer" class="game-prompt">
+                <div id="new-game" class="initiliazer-header">
                     <h2>Ready to Hunt?</h2>
-                    <h5>Select options below to get started</h5>
+                    <h5>Start game below</h5>
+                </div>
+                <div id="lost-game" class="initiliazer-header hidden">
+                    <h2>YOU LOSE</h2>
+                    <h5>You shot the wrong bird!</h5>
+                </div>
+                <div id="won-game" class="initiliazer-header hidden">
+                    <h2 id="final-score-message">Final Score: --</h2>
+                    <h5>Nice Shootin'! Play again?</h5>
+                </div>
                 <div id="game-start-instructions">
                     <h3>Instructions</h3>
                     <table class="instructions-table">
@@ -74,50 +84,8 @@
                             <input type="radio" id="hard" name="difficulty" value="Hard">
                             <label for="hard">HARD</label>
                         </div>
-                        <input id="game-start-button" type="button" value="BEGIN GAME!">
+                        <input id="game-start-button" type="button" value="START GAME!">
 
-                    </form>
-                </div>
-            </div>
-            <div id="game-lose" class="game-prompt hidden">
-                <h2>YOU LOSE</h2>
-                <h5>Oh no, you shot the wrong bird!</h5>
-                <div id="game-start-instructions">
-                    <h3>Instructions</h3>
-                </div>
-                <div id="game-start-form">
-                    <h3>Game Play Options</h3>
-                    <br>
-                    <h4>Select Difficulty</h4>
-                    <form id="game-start-form">
-                        <input type="radio" id="easy" name="difficulty-lost" value="Easy">
-                        <label for="easy">EASY</label>
-                        <input type="radio" id="medium" name="difficulty-lost" value="Medium" checked>
-                        <label for="medium">MEDIUM</label>
-                        <input type="radio" id="hard" name="difficulty-lost" value="Hard">
-                        <label for="hard">HARD</label>
-                        <input id="game-start-button-loss" type="button" value="PLAY AGAIN!">
-                    </form>
-                </div>
-            </div>
-            <div id="game-over" class="game-prompt hidden">
-                <h2 id="final-score-message">Final Score: --></h2>
-                <h5>Nice Shootin'!</h5>
-                <div id="game-start-instructions">
-                    <h3>Instructions</h3>
-                </div>
-                <div id="game-start-div">
-                    <h3>Game Play Options</h3>
-                    <br>
-                    <h4>Select Difficulty</h4>
-                    <form id="game-start-form">
-                        <input type="radio" id="easy" name="difficulty-win" value="Easy">
-                        <label for="easy">EASY</label><br>
-                        <input type="radio" id="medium" name="difficulty-win" value="Medium" checked>
-                        <label for="medium">MEDIUM</label><br>
-                        <input type="radio" id="hard" name="difficulty-win" value="Hard">
-                        <label for="hard">HARD</label><br>
-                        <input id="game-start-button-win" type="button" value="PLAY AGAIN!">
                     </form>
                 </div>
             </div>
@@ -157,7 +125,7 @@
             </div>
         </div>
     </div>
-    <div></div>
+    <!-- <audio id="gun-sound" src="./assets/gun_shot.mp3"></audio> -->
   </body>
 
 </html>
