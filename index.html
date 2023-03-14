@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed&family=Rye&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
     <title>Big Duck Hunter</title>
@@ -19,7 +19,7 @@
     <nav id="header">
         <nav id="main-nav">
             <ul>
-                <li>Restart Game</li>
+                <li><a href="javascript:window.location.href=window.location.href">Restart Game</a></li>
                 <li id="sound">
                     <img src="./assets/mute.png">
                 </li>
@@ -39,21 +39,43 @@
             <canvas id="canvas" width="1000" height="550"></canvas>
             <div id="game-start" class="game-prompt">
                     <h2>Ready to Hunt?</h2>
+                    <h5>Select options below to get started</h5>
                 <div id="game-start-instructions">
                     <h3>Instructions</h3>
+                    <table class="instructions-table">
+                        <tr>
+                          <td class="col1">Use keys to move crosshair</td>
+                          <td class="col2"><img class="keys-img-main-instruction" width="120" src="./assets/keys.png"></td>
+                        </tr>
+                        <tr>
+                          <td class="col1">Use space bar to shoot at birds</td>
+                          <td class="col2"><p class="spacebar-image spacebar-image-main"></p></td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Remember to only shoot ducks</td>
+                            <td class="col2"><img width="100" src="./assets/single_duck.png"></td>
+                        </tr>
+                        <tr>
+                            <td class="col1">Watch out! Other birds might look like ducks, but if you shoot them, you lose</td>
+                            <td class="col2"><img width="100" src="./assets/single_goose.png"></td>
+                        </tr>
+                      </table>
                 </div>
-                <div id="game-start-form">
+                <div class="game-start-div">
                     <h3>Game Play Options</h3>
                     <br>
-                    <h4>Select Difficulty</h4>
-                    <form id="game-start-form">
-                        <input type="radio" id="easy" name="difficulty" value="Easy">
-                        <label for="easy">EASY</label><br>
-                        <input type="radio" id="medium" name="difficulty" value="Medium" checked>
-                        <label for="medium">MEDIUM</label><br>
-                        <input type="radio" id="hard" name="difficulty" value="Hard">
-                        <label for="hard">HARD</label><br>
+                    <h4>Difficulty:</h4>
+                    <form class="game-start-form">
+                        <div class="radio-buttons">
+                            <input type="radio" id="easy" name="difficulty" value="Easy">
+                            <label for="easy">EASY</label>
+                            <input type="radio" id="medium" name="difficulty" value="Medium" checked>
+                            <label for="medium">MEDIUM</label>
+                            <input type="radio" id="hard" name="difficulty" value="Hard">
+                            <label for="hard">HARD</label>
+                        </div>
                         <input id="game-start-button" type="button" value="BEGIN GAME!">
+
                     </form>
                 </div>
             </div>
@@ -69,22 +91,22 @@
                     <h4>Select Difficulty</h4>
                     <form id="game-start-form">
                         <input type="radio" id="easy" name="difficulty-lost" value="Easy">
-                        <label for="easy">EASY</label><br>
+                        <label for="easy">EASY</label>
                         <input type="radio" id="medium" name="difficulty-lost" value="Medium" checked>
-                        <label for="medium">MEDIUM</label><br>
+                        <label for="medium">MEDIUM</label>
                         <input type="radio" id="hard" name="difficulty-lost" value="Hard">
-                        <label for="hard">HARD</label><br>
+                        <label for="hard">HARD</label>
                         <input id="game-start-button-loss" type="button" value="PLAY AGAIN!">
                     </form>
                 </div>
             </div>
             <div id="game-over" class="game-prompt hidden">
-                <h2>Nice Shootin'!</h2>
-                <h5 id="final-score-message">Final Score: --</h5>
+                <h2 id="final-score-message">Final Score: --></h2>
+                <h5>Nice Shootin'!</h5>
                 <div id="game-start-instructions">
                     <h3>Instructions</h3>
                 </div>
-                <div id="game-start-form">
+                <div id="game-start-div">
                     <h3>Game Play Options</h3>
                     <br>
                     <h4>Select Difficulty</h4>
@@ -123,7 +145,7 @@
                     </section>
                     <section id="spacebar-instruction" class="bar-underneath">
                         <p>Use spacebar</p>
-                        <p id="spacebar-image"></p>
+                        <p id="spacebar-image-sidebar" class="spacebar-image"></p>
                         <p>to shoot at birds</p>
                     </section>
                     <section>

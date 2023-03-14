@@ -8,8 +8,8 @@ class FlyingObject {
         this.sy = getRndInteger(0, 3) * 300;
         this.sWidth = 450;
         this.sHeight = 300;
-        this.x = getRndInteger(0, canvas.width + 1);
-        this.y = getRndInteger(0, canvas.height + 1);
+        this.x = getRndInteger((-this.width/2), canvas.width);
+        this.y = getRndInteger((-this.height/2), canvas.height);
         this.dx = getVelHor(difficulty);
         this.dy = getVelVert(difficulty);
         this.game = game;

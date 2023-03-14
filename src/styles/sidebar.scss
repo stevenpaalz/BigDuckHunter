@@ -49,20 +49,23 @@
 
 #instructions div {
     text-align: center;
-    font-family: arial;
+    font-family: 'Roboto Condensed', sans-serif;
     border: none;
     margin: 0;
     padding: 3px;
     font-size: 0.8em;
 }
 
-#spacebar-image {
+.spacebar-image {
     border: white 1px solid;
+    border-radius: 2px;
+    align-items: center;
+}
+
+#spacebar-image-sidebar {
     height: 15px;
     margin: 5px;
     width: 80px;
-    border-radius: 2px;
-    align-items: center;
 }
 
 #spacebar-instruction {
@@ -72,8 +75,8 @@
 }
 
 .bar-underneath {
-    margin-bottom: 6px;
-    padding-bottom: 6px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
     border-bottom: 2px solid rgb(91, 48, 12);
 }
 

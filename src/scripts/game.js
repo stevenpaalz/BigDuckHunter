@@ -24,7 +24,7 @@ class Game {
     }
 
     animate() {
-        if (this.time <= 0) {
+        if (this.time < 0) {
             if (!this.gameLost) {
                 return this.gameOver();
             } else {return;}
@@ -51,6 +51,7 @@ class Game {
     }
 
     run() {
+        this.ticker = setInterval(this.tick.bind(this), 1000);
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.crosshair = new Crosshair(this);
@@ -59,21 +60,23 @@ class Game {
         this.ducks = Duck.generateDucks(this.difficulty, this);
         this.otherBirds = OtherBird.generateOtherBirds(this.difficulty, this);
         this.trees = Tree.generateTrees();
-
-        // this is where the issue is
         document.addEventListener("keydown", this.keyDownHandler);
         document.addEventListener("keyup", this.keyUpHandler);
-        this.ticker = setInterval(this.tick.bind(this), 1000);
         this.animate();
     }
 
     tick() {
         const timeDisplay = document.getElementById("time-display")
-        console.log(this.time);
-        timeDisplay.innerText = this.time.toLocaleString('en-US', {
-            minimumIntegerDigits: 2
-          });
         if (this.time > 0) {
+            timeDisplay.innerText = this.time.toLocaleString('en-US', {
+                minimumIntegerDigits: 2
+            });
+        } else {
+            timeDisplay.innerText = (0).toLocaleString('en-US', {
+                minimumIntegerDigits: 2
+            });
+        }
+        if (this.time >= 0) {
             this.time -= 1;
         } else {
             clearInterval(this.ticker);
@@ -84,7 +87,6 @@ class Game {
         this.time = 0;
         const gameLose = document.getElementById("game-lose");
         gameLose.classList.remove("hidden");
-        console.log('you lose!');
     }
 
     changeGameLost() {
@@ -96,7 +98,6 @@ class Game {
         const finalScoreMessage = document.getElementById("final-score-message");
         finalScoreMessage.innerText = `Final Score: ${this.score}`;
         gameOver.classList.remove("hidden");
-        console.log("game over");
     }
 
     scorePoint() {
@@ -118,7 +119,6 @@ class Game {
     }
 
     keyDownHandler(event) {
-        // debugger
         if ([37, 38, 39, 40, 32, 65, 68, 83, 87].includes(event.keyCode)) {event.preventDefault();}
         switch (event.keyCode) {
             case 37:
