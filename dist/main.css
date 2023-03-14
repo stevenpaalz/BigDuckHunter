@@ -97,12 +97,14 @@ table {
 
 #main-nav {
   margin-left: 50px;
+  font-size: 20px;
+  width: 250px;
 }
 
 #main-nav ul {
   display: flex;
-  width: 200px;
   justify-content: space-around;
+  align-items: center;
 }
 
 #main-title {
@@ -118,6 +120,10 @@ table {
   display: flex;
   width: 200px;
   justify-content: space-around;
+}
+
+#sound img {
+  height: 30px;
 }
 
 #sidebar {
