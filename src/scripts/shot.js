@@ -26,7 +26,7 @@ class Shot {
     fire() {
         this.framesRemaining = 20;
         this.game.currentShots.push(this);
-        // this.otherBirdCollisions();
+        this.otherBirdCollisions();
         if (!this.game.gameLost) {
             this.duckCollisions();
         }
@@ -47,6 +47,7 @@ class Shot {
     otherBirdCollisions() {
         for (let i = 0; i < this.game.otherBirds.length; i++) {
             if (detectCollision(this.hitbox, this.game.otherBirds[i].hitbox)) {
+                this.game.changeGameLost();
                 return this.game.loseGame();
             }
         }

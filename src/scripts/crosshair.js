@@ -8,10 +8,6 @@ class Crosshair {
         this.height = 50;
         this.x = (canvas.width / 2) - (this.width / 2);
         this.y = (canvas.height / 2) - (this.height / 2);
-        this.leftPressed = false;
-        this.rightPressed = false;
-        this.upPressed = false;
-        this.downPressed = false;
         this.game = game;
     }
 
@@ -33,87 +29,19 @@ class Crosshair {
     }
 
     move() {
-        if (this.leftPressed) {
+        if (this.game.leftPressed) {
             this.x -= 5;
         }
-        if (this.rightPressed) {
+        if (this.game.rightPressed) {
             this.x += 5;
         }
-        if (this.upPressed) {
+        if (this.game.upPressed) {
             this.y -= 5;
         }
-        if (this.downPressed) {
+        if (this.game.downPressed) {
             this.y += 5;
         }
         this.draw();
-    }
-
-    keyDownHandler(event) {
-        if ([37, 38, 39, 40, 32, 65, 68, 83, 87].includes(event.keyCode)) {event.preventDefault();}
-        switch (event.keyCode) {
-            case 37:
-                this.leftPressed = true;
-                break;
-            case 65:
-                this.leftPressed = true;
-                break;
-            case 39:
-                this.rightPressed = true;
-                break;
-            case 68:
-                this.rightPressed = true;
-                break;     
-            case 38:
-                this.upPressed = true;
-                break;
-            case 87:
-                this.upPressed = true;
-                break;
-            case 40:
-                this.downPressed = true;
-                break;
-            case 83:
-                this.downPressed = true;
-                break;
-            case 32:
-                this.fireShot();
-                break;
-        }
-    }
-
-    keyUpHandler(event) {
-        event.preventDefault();
-        switch (event.keyCode) {
-            case 37:
-                this.leftPressed = false;
-                break;
-            case 65:
-                this.leftPressed = false;
-                break;
-            case 39:
-                this.rightPressed = false;
-                break;
-            case 68:
-                this.rightPressed = false;
-                break; 
-            case 38:
-                this.upPressed = false;
-                break;
-            case 87:
-                this.upPressed = false;
-                break;
-            case 40:
-                this.downPressed = false;
-                break;
-            case 83:
-                this.downPressed = false;
-                break;
-        }
-    }
-
-    fireShot() {
-        let shot = new Shot(this.x, this.y, this.width, this.height, this.game);
-        shot.fire();
     }
 }
 

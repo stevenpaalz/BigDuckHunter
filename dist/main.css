@@ -260,6 +260,10 @@ table {
   text-align: left;
 }
 
+#final-score-message {
+  color: red;
+}
+
 .hidden {
   display: none;
 }

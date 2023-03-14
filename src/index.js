@@ -16,29 +16,26 @@ document.addEventListener("DOMContentLoaded", () => {
     gameStartButton.addEventListener("click", (event)=>{
         let difficulty = document.querySelector('input[name="difficulty"]:checked').value;
         gameStart.classList.add("hidden");
-        let game2 = new Game(difficulty);
-        game2.run();
-        game2 = {};
+        window.game = new Game(difficulty);
+        game.run();
     })
 
-    // const gameLose = document.getElementById("game-lose");
-    // const gameStartButtonLoss = document.getElementById("game-start-button-loss");
-    // gameStartButtonLoss.addEventListener("click", (event)=>{
-    //     let difficulty = document.querySelector('input[name="difficulty-lost"]:checked').value;
-    //     gameLose.classList.add("hidden");
-    //     let game = new Game(difficulty);
-    //     game.run();
-    //     game = {};
-    // })
+    const gameLose = document.getElementById("game-lose");
+    const gameStartButtonLoss = document.getElementById("game-start-button-loss");
+    gameStartButtonLoss.addEventListener("click", (event)=>{
+        let difficulty = document.querySelector('input[name="difficulty-lost"]:checked').value;
+        gameLose.classList.add("hidden");
+        window.game = new Game(difficulty);
+        game.run();
+    })
 
     const gameOver = document.getElementById("game-over");
     const gameStartButtonWin = document.getElementById("game-start-button-win");
     gameStartButtonWin.addEventListener("click", (event)=>{
         let difficulty = document.querySelector('input[name="difficulty-win"]:checked').value;
         gameOver.classList.add("hidden");
-        let game = new Game(difficulty);
+        window.game = new Game(difficulty);
         game.run();
-        game = {};
     })
 
 });
