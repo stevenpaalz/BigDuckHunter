@@ -8,7 +8,7 @@ body {
 
 #main {
   width: 1240px;
-  height: 550px;
+  height: 573px;
   margin: 0 auto;
   color: white;
   display: flex;
@@ -18,10 +18,16 @@ body {
   position: relative;
   border: solid rgb(91, 48, 12) 4px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 7px 10px 10px 10px;
   background-color: #365700;
-  height: 550px;
+  height: 573px;
   width: 1000px;
+}
+
+.mode-display {
+  height: 23px;
+  font-family: "Bangers", cursive;
+  font-size: 1.4em;
 }
 
 #canvas {
@@ -31,6 +37,17 @@ body {
   background-image: url("../../BigDuckHunter/assets/landscape.jpg");
   background-size: 1200px;
   width: auto;
+}
+
+.mode-display {
+  margin-right: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#current-player-display {
+  font-size: 0.7em;
+  vertical-align: middle;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -92,8 +109,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  margin-bottom: 20px;
+  height: 75px;
+  margin-bottom: 12px;
   width: 100%;
   border-bottom: 4px solid rgb(91, 48, 12);
   background-color: #365700;
@@ -118,7 +135,7 @@ a {
 }
 
 #main-title {
-  font-size: 70px;
+  font-size: 65px;
   font-family: "Bangers", cursive;
 }
 
@@ -146,8 +163,8 @@ a {
   flex-direction: column;
   justify-content: space-between;
   width: 178px;
-  height: 578px;
-  margin: 0 2px;
+  height: 598px;
+  margin: 0 4px;
   padding: 0px;
 }
 
@@ -164,19 +181,19 @@ a {
 }
 
 #timer {
-  height: 65px;
+  height: 67px;
 }
 
 #score {
-  height: 65px;
+  height: 67px;
 }
 
 #difficulty {
-  height: 65px;
+  height: 67px;
 }
 
 #instructions {
-  height: 265px;
+  height: 270x;
 }
 
 .big-letters {
@@ -227,20 +244,30 @@ a {
 }
 
 #difficulty-display {
-  font-size: 2em;
+  font-size: 2.2em;
 }
 
 .game-prompt {
   position: absolute;
   background-color: #365700;
-  height: 350px;
-  width: 650px;
-  top: 100px;
-  left: 175px;
+  height: 450px;
+  width: 750px;
+  top: 50px;
+  left: 125px;
   border: 4px rgb(91, 48, 12) solid;
   border-radius: 5px;
   padding: 15px;
   font-family: "Bangers", cursive;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#game-start-main {
+  width: 100%;
+}
+
+.initializer-header {
+  width: 100%;
 }
 
 .game-prompt h2 {
@@ -254,7 +281,7 @@ a {
 
 .game-prompt h5 {
   font-family: "Bangers", cursive;
-  font-size: 20px;
+  font-size: 30px;
   width: 100%;
   display: block;
   text-align: center;
@@ -266,12 +293,13 @@ a {
 
 .game-start-div h3 {
   font-size: 30px;
+  width: 100%;
 }
 
 #game-start-instructions {
   margin-top: 15px;
   float: left;
-  width: 300px;
+  width: 350px;
   text-align: center;
 }
 
@@ -279,21 +307,19 @@ a {
   height: 257px;
   margin-top: 15px;
   float: right;
-  width: 270px;
+  width: 325px;
   text-align: center;
   margin-left: 4px;
-  padding-left: 18px;
+  padding-left: 30px;
   border-left: 3px solid rgb(91, 48, 12);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .game-start-div h4 {
   font-size: 1.5em;
   text-align: left;
   padding-bottom: 0.5em;
-}
-
-.hidden {
-  display: none;
 }
 
 table {
@@ -338,7 +364,7 @@ td img {
 }
 
 td {
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .game-prompt input[type=button] {
@@ -357,8 +383,6 @@ td {
 }
 
 .game-prompt input[type=button]:hover {
-  height: 45px;
-  width: 160px;
   color: white;
   background: rgb(91, 48, 12);
   margin-top: 10px;
@@ -382,14 +406,14 @@ td {
 .radio-buttons label:hover {
   cursor: pointer;
   font-family: "Rye", cursive;
-  font-size: 1.9em;
+  font-size: 1.7em;
   text-shadow: rgb(255, 225, 0) 1px 0 10px;
 }
 
 .radio-buttons input[type=radio]:checked + label {
   cursor: pointer;
   font-family: "Rye", cursive;
-  font-size: 1.9em;
+  font-size: 1.7em;
   color: red;
 }
 
@@ -398,4 +422,78 @@ td {
   flex-direction: column;
   align-items: left;
   height: 120px;
+}
+
+.game-start-form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#versus-score-display {
+  width: 380px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-start-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.player-start-header h2 {
+  font-size: 4em;
+}
+
+.player-start-header h3 {
+  font-size: 3em;
+}
+
+.player-start-header h4 {
+  font-size: 2.5em;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: #ff5722;
+}
+
+.rye {
+  font-family: "Rye", cursive;
+}
+
+#turn-start-form .turn-start-button {
+  width: 400px;
+  height: 80px;
+  font-size: 3em;
+}
+
+#difficulty-radio {
+  width: 150px;
+  display: flex;
+  height: 160px;
+  justify-content: space-between;
+  padding-right: 5px;
+  border-right: 3px solid rgb(91, 48, 12);
+}
+
+#mode-radio {
+  width: 150px;
+  display: flex;
+  height: 110px;
+  justify-content: space-between;
+  margin-left: 15px;
+}
+
+.hidden {
+  display: none;
 }

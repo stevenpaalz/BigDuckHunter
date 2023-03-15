@@ -23,11 +23,7 @@ class Game {
     }
 
     animate() {
-        if (this.time < 0) {
-            if (!this.gameLost) {
-                return this.gameOver();
-            } else {return;}
-        }
+        if (this.checkGameOver()) {return true;}
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.frames += 1;
@@ -55,13 +51,36 @@ class Game {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.crosshair = new Crosshair(this);
         const difficultyDisplay = document.getElementById("difficulty-display");
-        difficultyDisplay.innerText = this.difficulty;
+        difficultyDisplay.innerText = `${this.difficulty}`;
         this.ducks = Duck.generateDucks(this.difficulty, this);
         this.otherBirds = OtherBird.generateOtherBirds(this.difficulty, this);
         this.trees = Tree.generateTrees();
         document.addEventListener("keydown", this.keyDownHandler);
         document.addEventListener("keyup", this.keyUpHandler);
         this.animate();
+    }
+
+
+    checkGameOver() {
+        if (this.time < 0) {
+            if (!this.gameLost) {
+                if (this.currentPlayer === "playerOne") {
+                    this.currentPlayer = "playerTwo";
+                    this.queueNextTurn();
+                } else {
+                    this.gameOver();
+                }
+                return true;
+            } else {
+                if (this.currentPlayer === "playerOne") {
+                    this.currentPlayer = "playerTwo";
+                    this.queueNextTurn();}
+                else if (this.currentPlayer === "playerTwo") {
+                    this.gameOver();
+                }
+                return true;
+            }
+        }
     }
 
     tick() {
@@ -101,6 +120,7 @@ class Game {
         finalScoreMessage.innerText = `Final Score: ${this.score}`;
         gameInitializer.classList.remove("hidden");
         wonGame.classList.remove("hidden");
+        return true;
     }
 
     scorePoint() {

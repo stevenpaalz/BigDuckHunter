@@ -1,0 +1,62 @@
+#versus-score-display {
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-start-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.player-start-header h2{
+    font-size: 4em;
+}
+
+.player-start-header h3{
+    font-size: 3em;
+
+}
+
+.player-start-header h4{
+    font-size: 2.5em;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: #ff5722;
+}
+
+.rye {
+    font-family: 'Rye', cursive;
+}
+
+#turn-start-form .turn-start-button {
+    width: 400px;
+    height: 80px;
+    font-size: 3em; 
+}
+
+#difficulty-radio {
+    width: 150px;
+    display: flex;
+    height: 160px;
+    justify-content: space-between;
+    padding-right: 5px;
+    border-right: 3px solid rgb(91, 48, 12);
+}
+
+#mode-radio {
+    width: 150px;
+    display: flex;
+    height: 110px;
+    justify-content: space-between;
+    margin-left: 15px;
+}

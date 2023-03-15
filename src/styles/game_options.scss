@@ -14,8 +14,6 @@
 }
 
 .game-prompt input[type='button']:hover {
-    height: 45px;
-    width: 160px;
     color: white;
     background: rgb(91, 48, 12);
     margin-top: 10px;
@@ -39,14 +37,14 @@
 .radio-buttons label:hover {
     cursor: pointer;
     font-family: 'Rye', cursive;
-    font-size: 1.9em;
+    font-size: 1.7em;
     text-shadow: rgb(255, 225, 0) 1px 0 10px;
 }
 
 .radio-buttons input[type="radio"]:checked + label {
     cursor: pointer;
     font-family: 'Rye', cursive;
-    font-size: 1.9em;
+    font-size: 1.7em;
     color: red;
 }
 
@@ -55,5 +53,13 @@
     flex-direction: column;
     align-items: left;
     height: 120px;
+}
+
+.game-start-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
