@@ -1,29 +1,182 @@
 # BigDuckHunter
 
-## Background
+[Big Duck Hunter](https://stevenpaalz.github.io/BigDuckHunter/) is a browser-based game that allows a user to play as a hunter attempting to shoot ducks. The user, however, does not want to shoot other types of birds. The user controls the displayed cross hair to aim and shoot at ducks. The user is awarded points for each duck they shoot. However, if a user shoots any bird besides a duck, the user loses the game.
 
-The Big Duck Hunter game allows a user to play as a hunter that is attempting to shoot the ducks in a gameplay environment. The user, however, does not want to shoot other types of birds. The user controls the aim of its rifle using the arrow keys to move a crosshair around the gameplay area. Pressing the space bar will fire a shot where the crosshair is currently positioned in the gameplay area. The user will be awarded one point for each duck they shoot. However, if the user shoots any bird besides a duck, they will instantly lose the game. 
+The user is given 30 seconds to shoot as many ducks as they can without shooting other birds. The game also features the ability for the user to change the difficulty of the game, which changes the speed and quantity of birds. The user's score and a timer are displayed to the user during gameplay. Additionally, sound effects include background music, gun shot sounds, and duck quacks to signal successful shots. Finally, the game also includes a two player mode to compete against another user.
 
-The user is given 60 seconds to shoot as many ducks as they can without shooting other birds. The game also features the ability for the user to change the difficulty of the game. The user's score and a timer are displayed ot the user during gameplay.
+![Game Display](./assets/game_display_readme.png)
 
-## Functionality & MVPs
 
-In Big Duck Hunter, users will be able to:
+## Wireframe
 
-- Start and restart game when the user is ready to play.
-- View a gameplay area with flying birds of various types as well as obstacles that birds fly behind.
-- Move their crosshair around the gameplay area using the arrow keys to aim at different birds in the game. Users will be able to shoot the different birds in the game with the spacebar. 
-- Earn a point by shooting a duck. Shooting any other type of birds will cause the player to immediately lose the game.
-- Choose the level of difficulty of the game, which will change the flight speed, number of shootable birds, and number of shootable obstacles present in the gameplay area.
-- View a scoreboard and timer that displays the user's score. Running out of time will end the game for the user.
+![Wireframe](./assets/wireframe.png)
 
-In addition, this project will include:
-- Instructions on how to play the game.
-- Mutable music and sound effects that will be played during the game.
 
-## Wireframes
+## Controls
 
-![Wireframe](./src/assets/wireframe.png)
+![Controls](./assets/controls_readme.png)
+
+## Functionality
+
+The gameplay uses canvas to animate the various birds and trees displayed in the canvas area. Birds are generated to have random spawn locations, speeds, and periodic changes in direction. The speed and quantity of birds is dependent on the selected difficulty.
+### Bird Generation:
+```js    
+static generateDucks(difficulty, game) {
+    let ducks = []
+    let numDucks = 15;
+    switch(difficulty) {
+        case "Medium":
+            numDucks = 10;
+            break;
+        case "Hard":
+            numDucks = 5;
+            break;
+    }
+    for (let i = 0; i < numDucks; i ++) {
+        ducks.push(new Duck(difficulty, game))
+    }
+    return ducks;
+}
+
+static respawn(difficulty, game) {
+    let newDuck = new Duck(difficulty, game);
+    let i = getRndInteger(0, 2)
+    if (i===0) {newDuck.x = (-newDuck.width/2)}
+    else {newDuck.x = canvas.width}
+    return newDuck;
+}
+```
+
+Bird sprites were used plus animation in canvas to give birds the appearance of flying. Additionally, trees were animated in each animation cycle to give the trees the appearance of being in front of birds and serving as obstacles in the game.
+### Animation Loop:
+```js
+animate() {
+    if (this.time < 0) {
+        if (!this.gameLost) {
+            return this.gameOver();
+        } else {return;}
+    }
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    this.frames += 1;
+    for (let i = 0; i < this.ducks.length; i++) {
+        this.ducks[i].update();
+    }
+    for (let i = 0; i < this.otherBirds.length; i++) {
+        this.otherBirds[i].update();
+    }
+    for (let i = 0; i < this.trees.length; i++) {
+        this.trees[i].draw();
+    }
+    this.crosshair.move();
+    this.drawShots();
+    const scoreDisplay = document.getElementById("score-display");
+    scoreDisplay.innerText = this.score.toLocaleString('en-US', {
+        minimumIntegerDigits: 2
+        });
+    requestAnimationFrame(this.animate.bind(this));
+}
+```
+
+A time interval is set outside the animation loop to ensure that the game lasts only 30 seconds. The run loop initializes the timer and the animation loop.
+### Run Logic: 
+```js
+run() {
+    this.ticker = setInterval(this.tick.bind(this), 1000);
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    this.crosshair = new Crosshair(this);
+    const difficultyDisplay = document.getElementById("difficulty-display");
+    difficultyDisplay.innerText = this.difficulty;
+    this.ducks = Duck.generateDucks(this.difficulty, this);
+    this.otherBirds = OtherBird.generateOtherBirds(this.difficulty, this);
+    this.trees = Tree.generateTrees();
+    document.addEventListener("keydown", this.keyDownHandler);
+    document.addEventListener("keyup", this.keyUpHandler);
+    this.animate();
+}
+```
+
+The user can move the crosshair using the arrow keys. In the animation loop, the crosshair is also drawn. Crosshair movement was achieved using the X,Y coordinate plane and key down event listeners.
+### Crosshair: 
+```js
+draw() {
+    const ctx = canvas.getContext("2d");
+    if (this.x + (this.width / 2) > canvas.width) {
+        this.x = canvas.width - (this.width / 2);
+    }
+    if (this.x + (this.width / 2) < 0) {
+        this.x = -(this.width / 2);
+    }
+    if (this.y + (this.height / 2) > canvas.height) {
+        this.y = canvas.height - (this.height / 2);
+    }
+    if (this.y + (this.height / 2) < 0) {
+        this.y = -(this.height / 2);
+    }
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+}
+
+move() {
+    if (this.game.leftPressed) {
+        this.x -= 5;
+    }
+    if (this.game.rightPressed) {
+        this.x += 5;
+    }
+    if (this.game.upPressed) {
+        this.y -= 5;
+    }
+    if (this.game.downPressed) {
+        this.y += 5;
+    }
+    this.draw();
+}
+```
+
+A fired shot triggers an audio effect. Then the shot is generated on the screen with a hitbox. Collision detection is used to first determine if the shot hit an obstacle (a tree), then if it hit a losing bird, then finally if it hit a duck.
+### Fire Shot Logic:
+```js
+fire() {
+    this.framesRemaining = 20;
+    const sound = document.getElementById('sound');
+    if (sound.dataset.muted === "false") {
+        const gunSound = new Audio();
+        gunSound.src = "../BigDuckHunter/assets/gun_shot.mp3";
+        gunSound.play();
+    }
+    this.game.currentShots.push(this);
+    if (!this.treeCollisions()) {
+        this.otherBirdCollisions();
+        if (!this.game.gameLost) {
+            this.duckCollisions();
+        }
+    } else {console.log("tree shot!")}
+}
+```
+
+Collision detecton logic was used to determine if a shot hit an object. This logic required a computation of the distance between shapes in the X, Y coordinate plane (distance between a circle and a rectangle or two circles).
+### Collision Detection:
+```js
+function detectCollision(circ, rect) {
+    let distX = Math.abs(circ.x - rect.x - (rect.width/2));
+    let distY = Math.abs(circ.y - rect.y - (rect.height/2));
+    if (distX > (rect.w / 2 + circ.r)) {
+        return false;
+    }
+    if (distY > (rect.height / 2 + circ.radius)) {
+        return false;
+    }
+
+    if (distX <= (rect.width / 2) && distY <= (rect.height / 2)) {
+        return true;
+    }
+
+    var dx = distX - rect.width / 2;
+    var dy = distY - rect.height / 2;
+    return (dx * dx + dy * dy <= (circ.radius * circ.radius));
+}
+```
 
 ## Technologies, Libraries, and APIs
 
@@ -43,7 +196,7 @@ Create underlying logic for gameplay. Develop logic for shooting birds, scoring 
 Implement user controls. Build instructions page that appears before gameplay can begin. Layout extra features around board including score, timer, difficulty level. Implement variable difficulty level.
 
 **Wendesday**
-Ensure good, cohesive styling across all aspects of web page. Add in mutable music feature. If time permits, add in gravity feature for shot birds to fall to ground before disappearing.
+Ensure good, cohesive styling across all aspects of web page. Add in mutable music feature. Include sound effects for gun shots and duck quacks.
 
 **Thursday**
-Deploy to GitHub pages. If time, rewrite proposal as a production README.
+Deploy to GitHub pages. 
