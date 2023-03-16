@@ -73,6 +73,50 @@ animate() {
 }
 ```
 
+The user is able to maneuver the crosshair around the screen using arrow keys. Pressing the space bar generates a shot. When a shot is fired, the game detects first if an obstacle(tree) was hit, then if a different bird was hit, and finally if a duck was hit.
+### Shot :
+```js
+fire() {
+    this.framesRemaining = 20;
+    const sound = document.getElementById('sound');
+    if (sound.dataset.muted === "false") {
+        const gunSound = new Audio();
+        gunSound.src = "../BigDuckHunter/assets/gun_shot.mp3";
+        gunSound.play();
+    }
+    this.game.currentShots.push(this);
+    if (!this.treeCollisions()) {
+        this.otherBirdCollisions();
+        if (!this.game.gameLost) {
+            this.duckCollisions();
+        }
+    }
+}
+```
+
+Collision detection logic is included to determine if a shot hits something in the game. This required computation using the X, Y coordinate grid of the canvas area to determine the distance between objects in the game.
+### Collision Loop:
+```js
+function detectCollision(circ, rect) {
+    let distX = Math.abs(circ.x - rect.x - (rect.width/2));
+    let distY = Math.abs(circ.y - rect.y - (rect.height/2));
+    if (distX > (rect.w / 2 + circ.r)) {
+        return false;
+    }
+    if (distY > (rect.height / 2 + circ.radius)) {
+        return false;
+    }
+
+    if (distX <= (rect.width / 2) && distY <= (rect.height / 2)) {
+        return true;
+    }
+
+    var dx = distX - rect.width / 2;
+    var dy = distY - rect.height / 2;
+    return (dx * dx + dy * dy <= (circ.radius * circ.radius));
+}
+```
+
 ## Technologies, Libraries, and APIs
 
 - The Canvas API to render gameplay area
