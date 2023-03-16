@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     width: 178px;
-    height: 578px;
-    margin: 0 2px;
+    height: 598px;
+    margin: 0 4px;
     padding: 0px;
 }
 
@@ -22,25 +22,24 @@
 }
 
 #timer {
-    height: 65px;
+    height: 67px;
 }
 
 #score {
-    height: 65px;
+    height: 67px;
 }
 
 #difficulty {
-    height: 65px;
+    height: 67px;
 }
 
 #instructions {
-    height: 265px;
+    height: 270x;
 }
 
 .big-letters {
     font-family: 'Rye', cursive;
     font-size: 2.5em;
-    color: red;
 }
 
 #keys-img {
@@ -85,5 +84,5 @@
 }
 
 #difficulty-display {
-    font-size: 2em;
+    font-size: 2.2em;
 }

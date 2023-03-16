@@ -1,15 +1,24 @@
 .game-prompt {
     position: absolute;
     background-color: #365700;
-    height: 350px;
-    width: 650px;
-    top: 100px;
-    left: 175px;
+    height: 450px;
+    width: 750px;
+    top: 61px;
+    left: 125px;
     border: 4px rgb(91, 48, 12) solid;
     border-radius: 5px;
     padding: 15px;
     font-family: 'Bangers', cursive;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+#game-start-main {
+    width: 100%;
+}
+
+.initializer-header {
+    width: 100%;
 }
 
 .game-prompt h2 {
@@ -23,7 +32,7 @@
 
 .game-prompt h5 {
     font-family: 'Bangers', cursive;
-    font-size: 20px;
+    font-size: 30px;
     width: 100%;
     display: block;
     text-align: center;
@@ -31,27 +40,31 @@
 
 #game-start-instructions h3 {
     font-size: 30px;
+    text-align: left;
 }
 
 .game-start-div h3 {
     font-size: 30px;
+    width: 100%;
+    text-align: left;
 }
 
 #game-start-instructions {
     margin-top: 15px;
     float: left;
-    width: 300px;
+    width: 350px;
     text-align: center;
+    height: 300px;
 }
 
 .game-start-div {
-    height: 257px;
+    height: 340px;
     margin-top: 15px;
     float: right;
-    width: 270px;
+    width: 325px;
     text-align: center;
     margin-left: 4px;
-    padding-left: 18px;
+    padding-left: 40px;
     border-left: 3px solid rgb(91, 48, 12);
 }
 
@@ -59,10 +72,6 @@
     font-size: 1.5em;
     text-align: left;
     padding-bottom: 0.5em;
-}
-
-.hidden {
-    display: none;
 }
 
 table {
@@ -84,13 +93,14 @@ table {
 }
 
 .col2 {
-    width: 130px;
+    width: 160px;
 }
 
 tr {
     display: flex;
     align-items: center;
-    padding: 8px 0;
+    padding: 10px 0;
+    height: 50px;
 }
 
 td img{
@@ -107,5 +117,5 @@ td img{
 }
 
 td {
-    padding: 0 10px;
+    padding: 0 5px;
 }

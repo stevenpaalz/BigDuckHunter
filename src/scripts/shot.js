@@ -35,8 +35,7 @@ class Shot {
             if (!this.game.gameLost) {
                 this.duckCollisions();
             }
-        } else {console.log("tree shot!")}
-
+        }
     }
 
     treeCollisions() {

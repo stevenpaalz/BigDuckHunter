@@ -36,72 +36,114 @@
     </nav>
     <div id="main">
         <div id="canvas-container">
+            <div id="single-mode-display" class="mode-display">
+                <p class="mode-left-display">Single Player Mode</p>
+            </div>
+            <div id="versus-mode-display" class="mode-display hidden">
+                <p class="mode-left-display">Versus: <span id="current-player-display" class="rye"></span></p>
+                <div id="versus-score-display">
+                    <p>Player One Score: <span id="player-one-score-display" class="rye red">--</span></p>
+                    <p>Player Two Score: <span id="player-two-score-display" class="rye orange">--</span></p>
+                </div>
+            </div>
             <canvas id="canvas" width="1000" height="550"></canvas>
             <div id="game-initializer" class="game-prompt">
-                <div id="new-game" class="initiliazer-header">
+                <div id="new-game" class="initializer-header">
                     <h2>Ready to Hunt?</h2>
                     <h5>Start game below</h5>
                 </div>
-                <div id="lost-game" class="initiliazer-header hidden">
+                <div id="lost-game" class="initializer-header hidden">
                     <h2>YOU LOSE</h2>
                     <h5>You shot the wrong bird!</h5>
                 </div>
-                <div id="won-game" class="initiliazer-header hidden">
+                <div id="won-game" class="initializer-header hidden">
                     <h2 id="final-score-message">Final Score: --</h2>
                     <h5>Nice Shootin'! Play again?</h5>
                 </div>
-                <div id="game-start-instructions">
-                    <h3>Instructions</h3>
-                    <table class="instructions-table">
-                        <tr>
-                          <td class="col1">Use keys to move crosshair</td>
-                          <td class="col2"><img class="keys-img-main-instruction" width="120" src="./assets/keys.png"></td>
-                        </tr>
-                        <tr>
-                          <td class="col1">Use space bar to shoot at birds</td>
-                          <td class="col2"><p class="spacebar-image spacebar-image-main"></p></td>
-                        </tr>
-                        <tr>
-                            <td class="col1">Remember to only shoot ducks</td>
-                            <td class="col2"><img width="100" src="./assets/single_duck.png"></td>
-                        </tr>
-                        <tr>
-                            <td class="col1">Watch out: Other birds might look like ducks, but if you shoot the wrong bird, you lose!</td>
-                            <td class="col2"><img width="100" src="./assets/single_goose.png"></td>
-                        </tr>
-                      </table>
+                <div id="two-player-end-game" class="initializer-header hidden">
+                    <h2 id="two-player-win-message"></h2>
+                    <h5 id="two-player-final-score"></h5>
                 </div>
-                <div class="game-start-div">
-                    <h3>Game Play Options</h3>
-                    <br>
-                    <h4>Difficulty:</h4>
-                    <form class="game-start-form">
-                        <div class="radio-buttons">
-                            <input type="radio" id="easy" name="difficulty" value="Easy">
-                            <label for="easy">EASY</label>
-                            <input type="radio" id="medium" name="difficulty" value="Medium" checked>
-                            <label for="medium">MEDIUM</label>
-                            <input type="radio" id="hard" name="difficulty" value="Hard">
-                            <label for="hard">HARD</label>
-                        </div>
-                        <input id="game-start-button" type="button" value="START GAME!">
+                <div id="game-start-main">
+                    <div id="game-start-instructions">
+                        <h3>Instructions</h3>
+                        <table class="instructions-table">
+                            <tr>
+                            <td class="col1">Use keys to move crosshair</td>
+                            <td class="col2"><img class="keys-img-main-instruction" width="120" src="./assets/keys.png"></td>
+                            </tr>
+                            <tr>
+                            <td class="col1">Use space bar to shoot at birds</td>
+                            <td class="col2"><p class="spacebar-image spacebar-image-main"></p></td>
+                            </tr>
+                            <tr>
+                                <td class="col1">Remember to only shoot ducks</td>
+                                <td class="col2"><img width="100" src="./assets/single_duck.png"></td>
+                            </tr>
+                            <tr>
+                                <td class="col1">Watch out: Other birds might look like ducks, but if you shoot the wrong bird, you lose!</td>
+                                <td class="col2"><img width="100" src="./assets/single_goose.png"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="game-start-div">
+                        <h3>Game Play Options</h3>
+                        <br>
+                        <form class="game-start-form">
+                            <div id="difficulty-radio" class="radio-buttons">
+                                <h4>Difficulty:</h4>
+                                <input type="radio" id="easy" name="difficulty" value="Easy">
+                                <label for="easy">EASY</label>
+                                <input type="radio" id="medium" name="difficulty" value="Medium" checked>
+                                <label for="medium">MEDIUM</label>
+                                <input type="radio" id="hard" name="difficulty" value="Hard">
+                                <label for="hard">HARD</label>
+                            </div>
+                            <div id="mode-radio" class="radio-buttons">
+                                <h4>Mode:</h4>
+                                <input type="radio" id="solo" name="mode" value="solo" checked>
+                                <label for="solo">SOLO</label>
+                                <input type="radio" id="versus" name="mode" value="twoPlayer">
+                                <label for="versus">VERSUS</label>
+                            </div>
+                            <input id="game-start-button" type="button" value="START GAME!">
+                        </form>
+                    </div>
+                </div>
+            </div>
 
+            <div id="turn-initializer" class="two-player-turn-start hidden game-prompt">
+                <div class="player-start-header hidden" id="player-one-turn-start">
+                    <h2>Versus Mode</h2>
+                    <h3 class="rye red">Player One's Turn</h3>
+                    <form id="turn-start-form" class="two-player-start-form">
+                        <input class="turn-start-button" id="player-one-turn-start-button" type="button" value="START GAME!">
+                    </form>
+                </div>
+                <div class="player-start-header hidden" id="player-two-turn-start">
+                    <h2>Versus Mode</h2>
+                    <h4 id="player-one-update"></h4>
+                    <h3 class="rye orange">Player Two's Turn</h3>
+                    <form id="turn-start-form" class="two-player-start-form">
+                        <input class="turn-start-button" id="player-two-turn-start-button" type="button" value="START TURN!">
                     </form>
                 </div>
             </div>
+
+
         </div>
         <div id="sidebar">
             <div id="timer">
                 <h3>Time</h3>
-                <p id="time-display" class="big-letters">--</p>
+                <p id="time-display" class="big-letters red">--</p>
             </div>
             <div id="score">
                 <h3>Score</h3>
-                <p id="score-display" class="big-letters">--</p>
+                <p id="score-display" class="big-letters red">--</p>
             </div>
             <div id="difficulty">
                 <h3>Difficulty</h3>
-                <p id="difficulty-display" class="big-letters">--</p>
+                <p id="difficulty-display" class="big-letters red">--</p>
             </div>
             <div id="instructions">
                 <h3>Instructions</h3>
@@ -125,7 +167,6 @@
             </div>
         </div>
     </div>
-    <!-- <audio id="gun-sound" src="./assets/gun_shot.mp3"></audio> -->
   </body>
 
 </html>

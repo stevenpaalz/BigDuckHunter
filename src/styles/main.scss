@@ -5,7 +5,7 @@ body {
 
 #main {
     width: 1240px;
-    height: 550px;
+    height: 573px;
     margin: 0 auto;
     color: white;
     display: flex;
@@ -15,15 +15,19 @@ body {
     position: relative;
     border: solid rgb(91, 48, 12) 4px;
     border-radius: 5px;
-    padding: 10px;
+    padding: 7px 10px 10px 10px;
     background-color: #365700;
-    height: 550px;
+    height: 573px;
     width: 1000px;
 }
 
+.mode-display {
+    height: 23px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.4em;
+}
 
 #canvas {
-    // float: left;
     position: absolute;
     border: solid black 1px;
     background: white;
@@ -32,8 +36,13 @@ body {
     width: auto;
 }
 
+.mode-display {
+    margin-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
 
-
-
-
-
+#current-player-display {
+    font-size: 0.7em;
+    vertical-align: middle;
+}
