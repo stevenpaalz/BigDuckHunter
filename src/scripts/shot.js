@@ -39,12 +39,14 @@ class Shot {
     }
 
     treeCollisions() {
-        if (detectCollision(this.hitbox, this.game.trees[0].hitbox1)) {return true;}
-        if (detectCollision(this.hitbox, this.game.trees[0].hitbox2)) {return true;}
-        if (detectCollision(this.hitbox, this.game.trees[0].hitbox3)) {return true;}
-        if (detectCollision(this.hitbox, this.game.trees[0].hitbox4)) {return true;}
-        if (detectCollisionCircles(this.hitbox, this.game.trees[1].hitbox)) {return true;}
-        return false;
+        if (this.x) {
+            if (detectCollision(this.hitbox, this.game.trees[0].hitbox1)) {return true;}
+            if (detectCollision(this.hitbox, this.game.trees[0].hitbox2)) {return true;}
+            if (detectCollision(this.hitbox, this.game.trees[0].hitbox3)) {return true;}
+            if (detectCollision(this.hitbox, this.game.trees[0].hitbox4)) {return true;}
+            if (detectCollisionCircles(this.hitbox, this.game.trees[1].hitbox)) {return true;}
+            return false;
+        }
     }
 
     duckCollisions() {
