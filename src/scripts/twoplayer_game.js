@@ -43,12 +43,28 @@ class TwoPlayerGame extends Game {
         const playerTwoStartButton = document.getElementById("player-two-turn-start-button");
         const currentPlayerDisplay = document.getElementById("current-player-display");
         const playerOneScoreDisplay = document.getElementById("player-one-score-display");
+        const playerOneUpdate = document.getElementById("player-one-update");
+        const timeDisplay = document.getElementById("time-display");
+        const scoreDisplay = document.getElementById("score-display");
+        const difficultyDisplay = document.getElementById("difficulty-display");
         currentPlayerDisplay.innerText = "Player Two";
-        if (this.gameLost === true) {this.playerOneScore = 0;}
-        else {this.playerOneScore = this.score;}
+        if (this.gameLost === true) {
+            this.playerOneScore = 0;
+            playerOneUpdate.innerText = "Oh no! Player One shot the wrong bird";
+        }
+        else {
+            this.playerOneScore = this.score;
+            playerOneUpdate.innerText = `Player One Score: ${this.playerOneScore}`;
+        }
         playerOneScoreDisplay.innerText = `${this.playerOneScore}`
         this.resetGameAttributes();
         this.toggleTurnInitializer();
+        timeDisplay.classList.add("orange");
+        timeDisplay.classList.remove("red");
+        scoreDisplay.classList.add("orange");
+        scoreDisplay.classList.remove("red");
+        difficultyDisplay.classList.add("orange");
+        difficultyDisplay.classList.remove("red");
         playerTwoTurnStart.classList.toggle("hidden");
         playerTwoStartButton.addEventListener("click", (event)=>{
             playerTwoTurnStart.classList.toggle("hidden");
@@ -88,7 +104,8 @@ class TwoPlayerGame extends Game {
         const twoPlayerFinalScore = document.getElementById("two-player-final-score");
         const twoPlayerEndGame= document.getElementById("two-player-end-game");
         const playerTwoScoreDisplay = document.getElementById("player-two-score-display");
-        this.playerTwoScore = this.score;
+        if (this.gameLost === true) {this.playerTwoScore = 0;}
+        else {this.playerTwoScore = this.score;}
         playerTwoScoreDisplay.innerText = `${this.playerTwoScore}`;
         if (this.playerOneScore > this.playerTwoScore) {
             twoPlayerWinMessage.innerText = "Player One Wins!";

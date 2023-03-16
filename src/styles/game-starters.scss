@@ -3,7 +3,7 @@
     background-color: #365700;
     height: 450px;
     width: 750px;
-    top: 50px;
+    top: 61px;
     left: 125px;
     border: 4px rgb(91, 48, 12) solid;
     border-radius: 5px;
@@ -40,11 +40,13 @@
 
 #game-start-instructions h3 {
     font-size: 30px;
+    text-align: left;
 }
 
 .game-start-div h3 {
     font-size: 30px;
     width: 100%;
+    text-align: left;
 }
 
 #game-start-instructions {
@@ -52,19 +54,18 @@
     float: left;
     width: 350px;
     text-align: center;
+    height: 300px;
 }
 
 .game-start-div {
-    height: 257px;
+    height: 340px;
     margin-top: 15px;
     float: right;
     width: 325px;
     text-align: center;
     margin-left: 4px;
-    padding-left: 30px;
+    padding-left: 40px;
     border-left: 3px solid rgb(91, 48, 12);
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .game-start-div h4 {
@@ -92,13 +93,14 @@ table {
 }
 
 .col2 {
-    width: 130px;
+    width: 160px;
 }
 
 tr {
     display: flex;
     align-items: center;
-    padding: 8px 0;
+    padding: 10px 0;
+    height: 50px;
 }
 
 td img{

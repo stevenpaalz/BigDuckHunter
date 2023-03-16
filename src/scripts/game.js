@@ -50,6 +50,7 @@ class Game {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.crosshair = new Crosshair(this);
+        this.crosshair.changeColor();
         const difficultyDisplay = document.getElementById("difficulty-display");
         difficultyDisplay.innerText = `${this.difficulty}`;
         this.ducks = Duck.generateDucks(this.difficulty, this);

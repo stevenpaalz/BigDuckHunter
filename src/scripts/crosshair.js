@@ -4,6 +4,8 @@ class Crosshair {
     constructor(game) {
         this.img = new Image();
         this.img.src = "../BigDuckHunter/assets/crosshair.png";
+        this.normalImg = "../BigDuckHunter/assets/crosshair.png";
+        this.altImg = "../BigDuckHunter/assets/crosshair_orange.png";
         this.width = 50;
         this.height = 50;
         this.x = (canvas.width / 2) - (this.width / 2);
@@ -42,6 +44,15 @@ class Crosshair {
             this.y += 5;
         }
         this.draw();
+    }
+
+    changeColor() {
+        if (!this.game.currentPlayer || this.game.currentPlayer === "playerOne") {
+            this.img.src = this.normalImg;
+        }
+        else {
+            this.img.src = this.altImg;
+        }
     }
 }
 

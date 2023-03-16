@@ -26,12 +26,16 @@
     font-size: 2.5em;
 }
 
+#player-one-update {
+    font-size: 3em;
+}
+
 .red {
     color: red;
 }
 
-.blue {
-    color: #ff5722;
+.orange {
+    color: #ff8d22;
 }
 
 .rye {
@@ -47,16 +51,15 @@
 #difficulty-radio {
     width: 150px;
     display: flex;
-    height: 160px;
+    height: 200px;
     justify-content: space-between;
     padding-right: 5px;
-    border-right: 3px solid rgb(91, 48, 12);
 }
 
 #mode-radio {
     width: 150px;
+    height: 146px;
     display: flex;
-    height: 110px;
     justify-content: space-between;
     margin-left: 15px;
 }

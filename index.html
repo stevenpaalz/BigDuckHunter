@@ -42,8 +42,8 @@
             <div id="versus-mode-display" class="mode-display hidden">
                 <p class="mode-left-display">Versus: <span id="current-player-display" class="rye"></span></p>
                 <div id="versus-score-display">
-                    <p>Player One Score: <span id="player-one-score-display" class="rye">--</span></p>
-                    <p>Player Two Score: <span id="player-two-score-display" class="rye">--</span></p>
+                    <p>Player One Score: <span id="player-one-score-display" class="rye red">--</span></p>
+                    <p>Player Two Score: <span id="player-two-score-display" class="rye orange">--</span></p>
                 </div>
             </div>
             <canvas id="canvas" width="1000" height="550"></canvas>
@@ -115,7 +115,6 @@
             <div id="turn-initializer" class="two-player-turn-start hidden game-prompt">
                 <div class="player-start-header hidden" id="player-one-turn-start">
                     <h2>Versus Mode</h2>
-                    <h4 id="player-one-update"></h4>
                     <h3 class="rye red">Player One's Turn</h3>
                     <form id="turn-start-form" class="two-player-start-form">
                         <input class="turn-start-button" id="player-one-turn-start-button" type="button" value="START GAME!">
@@ -124,7 +123,7 @@
                 <div class="player-start-header hidden" id="player-two-turn-start">
                     <h2>Versus Mode</h2>
                     <h4 id="player-one-update"></h4>
-                    <h3 class="rye blue">Player Two's Turn</h3>
+                    <h3 class="rye orange">Player Two's Turn</h3>
                     <form id="turn-start-form" class="two-player-start-form">
                         <input class="turn-start-button" id="player-two-turn-start-button" type="button" value="START TURN!">
                     </form>
@@ -136,15 +135,15 @@
         <div id="sidebar">
             <div id="timer">
                 <h3>Time</h3>
-                <p id="time-display" class="big-letters">--</p>
+                <p id="time-display" class="big-letters red">--</p>
             </div>
             <div id="score">
                 <h3>Score</h3>
-                <p id="score-display" class="big-letters">--</p>
+                <p id="score-display" class="big-letters red">--</p>
             </div>
             <div id="difficulty">
                 <h3>Difficulty</h3>
-                <p id="difficulty-display" class="big-letters">--</p>
+                <p id="difficulty-display" class="big-letters red">--</p>
             </div>
             <div id="instructions">
                 <h3>Instructions</h3>

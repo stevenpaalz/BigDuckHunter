@@ -199,7 +199,6 @@ a {
 .big-letters {
   font-family: "Rye", cursive;
   font-size: 2.5em;
-  color: red;
 }
 
 #keys-img {
@@ -252,7 +251,7 @@ a {
   background-color: #365700;
   height: 450px;
   width: 750px;
-  top: 50px;
+  top: 61px;
   left: 125px;
   border: 4px rgb(91, 48, 12) solid;
   border-radius: 5px;
@@ -289,11 +288,13 @@ a {
 
 #game-start-instructions h3 {
   font-size: 30px;
+  text-align: left;
 }
 
 .game-start-div h3 {
   font-size: 30px;
   width: 100%;
+  text-align: left;
 }
 
 #game-start-instructions {
@@ -301,19 +302,18 @@ a {
   float: left;
   width: 350px;
   text-align: center;
+  height: 300px;
 }
 
 .game-start-div {
-  height: 257px;
+  height: 340px;
   margin-top: 15px;
   float: right;
   width: 325px;
   text-align: center;
   margin-left: 4px;
-  padding-left: 30px;
+  padding-left: 40px;
   border-left: 3px solid rgb(91, 48, 12);
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .game-start-div h4 {
@@ -341,13 +341,14 @@ table {
 }
 
 .col2 {
-  width: 130px;
+  width: 160px;
 }
 
 tr {
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 10px 0;
+  height: 50px;
 }
 
 td img {
@@ -368,14 +369,16 @@ td {
 }
 
 .game-prompt input[type=button] {
-  height: 45px;
-  width: 160px;
+  height: 60px;
+  width: 200px;
   color: white;
   outline: none;
   border-radius: 4px;
   background: #263e00;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
   font-family: "Bangers", cursive;
   font-size: 2em;
   transition-duration: 0.3s;
@@ -385,9 +388,8 @@ td {
 .game-prompt input[type=button]:hover {
   color: white;
   background: rgb(91, 48, 12);
-  margin-top: 10px;
   font-family: "Bangers", cursive;
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .game-start-form input[type=radio] {
@@ -396,24 +398,28 @@ td {
 
 .radio-buttons label {
   font-family: "Rye", cursive;
-  font-size: 1.5em;
-  color: rgb(52, 52, 52);
-  height: 33%;
+  font-size: 1.6em;
+  color: rgb(119, 119, 119);
+  height: 48px;
   text-align: left;
   vertical-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .radio-buttons label:hover {
   cursor: pointer;
   font-family: "Rye", cursive;
-  font-size: 1.7em;
+  font-size: 1.8em;
   text-shadow: rgb(255, 225, 0) 1px 0 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .radio-buttons input[type=radio]:checked + label {
   cursor: pointer;
   font-family: "Rye", cursive;
-  font-size: 1.7em;
+  font-size: 1.8em;
   color: red;
 }
 
@@ -459,12 +465,16 @@ td {
   font-size: 2.5em;
 }
 
+#player-one-update {
+  font-size: 3em;
+}
+
 .red {
   color: red;
 }
 
-.blue {
-  color: #ff5722;
+.orange {
+  color: #ff8d22;
 }
 
 .rye {
@@ -480,16 +490,15 @@ td {
 #difficulty-radio {
   width: 150px;
   display: flex;
-  height: 160px;
+  height: 200px;
   justify-content: space-between;
   padding-right: 5px;
-  border-right: 3px solid rgb(91, 48, 12);
 }
 
 #mode-radio {
   width: 150px;
+  height: 146px;
   display: flex;
-  height: 110px;
   justify-content: space-between;
   margin-left: 15px;
 }

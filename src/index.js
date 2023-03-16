@@ -18,7 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const singleModeDisplay = document.getElementById("single-mode-display");
     const versusModeDisplay = document.getElementById("versus-mode-display");
     const turnInitializer = document.getElementById("turn-initializer");
+    const timeDisplay = document.getElementById("time-display");
+    const scoreDisplay = document.getElementById("score-display");
+    const difficultyDisplay = document.getElementById("difficulty-display");
     gameStartButton.addEventListener("click", (event)=>{
+        timeDisplay.classList.remove("orange");
+        timeDisplay.classList.add("red");
+        scoreDisplay.classList.remove("orange");
+        scoreDisplay.classList.add("red");
+        difficultyDisplay.classList.remove("orange");
+        difficultyDisplay.classList.add("red");
         let difficulty = document.querySelector('input[name="difficulty"]:checked').value;
         let mode = document.querySelector('input[name="mode"]:checked').value;
         gameInitializer.classList.add("hidden");
