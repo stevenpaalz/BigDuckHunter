@@ -1,12 +1,52 @@
 # BigDuckHunter
 
-## Background
+[Big Duck Hunter](https://stevenpaalz.github.io/BigDuckHunter/) is a browser-based game that allows a user to play as a hunter attempting to shoot ducks. The user, however, does not want to shoot other types of birds. The user controls the displayed cross hair to aim and shoot at ducks. The user is awarded points for each duck they shoot. However, if a user shoots any bird besides a duck, the user loses the game.
 
-The Big Duck Hunter game allows a user to play as a hunter that is attempting to shoot the ducks in a gameplay environment. The user, however, does not want to shoot other types of birds. The user controls the aim of its rifle using the arrow keys to move a crosshair around the gameplay area. Pressing the space bar will fire a shot where the crosshair is currently positioned in the gameplay area. The user will be awarded one point for each duck they shoot. However, if the user shoots any bird besides a duck, they will instantly lose the game. 
+The user is given 30 seconds to shoot as many ducks as they can without shooting other birds. The game also features the ability for the user to change the difficulty of the game, which changes the speed and quantity of birds. The user's score and a timer are displayed to the user during gameplay. Additionally, sound effects include background music, gun shot sounds, and duck quacks to signal successful shots.
 
-The user is given 60 seconds to shoot as many ducks as they can without shooting other birds. The game also features the ability for the user to change the difficulty of the game. The user's score and a timer are displayed ot the user during gameplay.
+![Game Display](./assets/game_display_readme.png)
 
-## Functionality & MVPs
+
+## Wireframes
+
+![Wireframe](./assets/wireframe.png)
+
+
+## Controls
+
+![Controls](./assets/controls_readme.png)
+
+## Functionality
+
+The gameplay uses canvas to animate the various birds and trees displayed in the canvas area. Birds are generated to have random spawn locations, speeds, and periodic changes in direction. The speed and quantity of birds is dependent on the selected difficulty.
+
+### Bird Generation:
+```    static generateDucks(difficulty, game) {
+        let ducks = []
+        let numDucks = 15;
+        switch(difficulty) {
+            case "Medium":
+                numDucks = 10;
+                break;
+            case "Hard":
+                numDucks = 5;
+                break;
+        }
+        for (let i = 0; i < numDucks; i ++) {
+            ducks.push(new Duck(difficulty, game))
+        }
+        return ducks;
+    }
+
+    static respawn(difficulty, game) {
+        let newDuck = new Duck(difficulty, game);
+        let i = getRndInteger(0, 2)
+        if (i===0) {newDuck.x = (-newDuck.width/2)}
+        else {newDuck.x = canvas.width}
+        return newDuck;
+    }```
+
+----------
 
 In Big Duck Hunter, users will be able to:
 
@@ -21,9 +61,6 @@ In addition, this project will include:
 - Instructions on how to play the game.
 - Mutable music and sound effects that will be played during the game.
 
-## Wireframes
-
-![Wireframe](./src/assets/wireframe.png)
 
 ## Technologies, Libraries, and APIs
 
