@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
-    // const mode = "singlePlayer"
-
     const gameInitializer = document.getElementById("game-initializer");
     const newGame = document.getElementById("new-game");
     const wonGame = document.getElementById("won-game");

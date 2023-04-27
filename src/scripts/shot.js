@@ -49,6 +49,10 @@ class Shot {
         }
     }
 
+    addHitImage() {
+        this.shotImg.src = "../BigDuckHunter/assets/hit.png";
+    }
+
     duckCollisions() {
         let refreshedDucks = [];
         for (let i = 0; i < this.game.ducks.length; i++) {
@@ -59,6 +63,7 @@ class Shot {
                     duckSound.src = "../BigDuckHunter/assets/duck_quack.mp3";
                     duckSound.play();
                 }
+                this.addHitImage();
                 this.game.scorePoint();
                 refreshedDucks.push(Duck.respawn(this.game.difficulty, this.game))
             } else {refreshedDucks.push(this.game.ducks[i])}
