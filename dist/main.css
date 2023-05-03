@@ -7,11 +7,11 @@ body {
 }
 
 #main {
-  width: 1240px;
-  height: 573px;
   margin: 0 auto;
   color: white;
-  display: flex;
+  height: calc(100vh - 91px);
+  width: 100vw;
+  display: block;
 }
 
 #canvas-container {
@@ -31,7 +31,6 @@ body {
 }
 
 #canvas {
-  position: absolute;
   border: solid black 1px;
   background: white;
   background-image: url("../../BigDuckHunter/assets/landscape.jpg");
@@ -50,6 +49,30 @@ body {
   vertical-align: middle;
 }
 
+#main-subcontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@media screen and (max-height: 666px) {
+  #header {
+    margin-bottom: 0px;
+  }
+  #main-subcontainer {
+    position: absolute;
+    top: 80px;
+    align-items: flex-start;
+  }
+}
+@media screen and (max-width: 938px) {
+  h1#main-title {
+    font-size: 50px;
+  }
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
